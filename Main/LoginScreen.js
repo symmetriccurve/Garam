@@ -35,9 +35,9 @@ _userLogedIn(user){
       console.log("  Photo URL: "+profile.photoURL);
     });
         if(user.displayName){
-          this.props.navigator.push({id: "Home",title:'Home',passProps:({someProps:'SomeProps'})})
+          this.props.navigator.push({id: "Home",title:'Home',passProps:({displayName:user.displayName})})
         }else{
-          this.props.navigator.push({id: "UpdateProfile",title:'Profile',passProps:({someProps:'SomeProps'})})
+          this.props.navigator.push({id: "UpdateProfile",title:'Profile'})
         }
   }
 }

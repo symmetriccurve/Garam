@@ -30,9 +30,9 @@ class UpdateProfile extends Component {
       displayName: this.state.displayName,
       photoURL: "https://example.com/jane-q-user/profile.jpg"
       }).then(function() {
-      self.props.navigator.push({id: "Home",title:'Home',passProps:({someProps:'SomeProps'})})
+      self.props.navigator.push({id: "Home",title:'Home',passProps:({displayName: self.state.displayName})})
       Alert.alert("update successful")
-      console.log(user);
+      console.log("user Profile Display Name After update:", user.displayName);
       }, function(error) {
         Alert.alert("update unsuccessful",error)
       });
@@ -45,7 +45,7 @@ class UpdateProfile extends Component {
       <View style={style.innerContainer}>
           <View style={style.usertextContainer}>
               <TextInput
-                    value = "someRandomName"
+                    value = {this.state.displayName}
                     onChangeText={(text) => this.setState({displayName: text})}
                     style={style.userInputText}
                     placeholder='Username'

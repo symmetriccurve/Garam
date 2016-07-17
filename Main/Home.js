@@ -25,7 +25,7 @@ class Home extends Component {
   }
 
  render() {
-   console.log("This Props", this.props);
+   console.log("This Props displayName", this.props.displayName);
     return (
           <View style={style.container}>
                   <Text> This is Main Screen </Text>

@@ -24,8 +24,14 @@ class Register extends Component {
     }
   }
 
+  _userLogedIn(){
+    Alert.alert("user Registered. Please login to Contiue")
+    this.props.navigator.push({id: "Login",title:'Home'})
+    console.log("Time toCreate a Firebase Node");
+  }
+
   _registerUser(){
-  firebase.auth().createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
+  firebase.auth().createUserWithEmailAndPassword(this.state.username, this.state.password).then((user)=>{this._userLogedIn(user)}).catch(function(error) {
      // Handle Errors here.
      var errorCode = error.code;
      var errorMessage = error.message;

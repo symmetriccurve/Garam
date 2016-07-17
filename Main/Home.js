@@ -11,6 +11,7 @@ import {
   Alert
 } from 'react-native'
 
+var AddTask = require('./AddTask')
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 class Home extends Component {
@@ -20,11 +21,26 @@ class Home extends Component {
     }
   }
 
+ _addNewDay(){
+   var user = firebase.auth().currentUser;
+   var self = this
+   if (user != null) {
+         var uid = user.uid
+         var displayName = user.displayName
+         var ObjectToSet = { Tasks : {Task1: "10hrs"}}
+       firebase.database().ref('users/' + uid + '/' +displayName + '/June_19/' ).set(ObjectToSet);
+       self.props.navigator.push({id: "AddTask",title:'AddTask',passProps:({displayName: self.state.displayName})})
+ }
+ }
  render() {
    var user = firebase.auth().currentUser;
     return (
           <View style={style.container}>
-                  <Text> Hello {user.displayName}</Text>
+              <TouchableHighlight onPress={()=>{this._addNewDay()}} underlayColor='#990000'>
+                    <View style={style.signInTextContainer}>
+                        <Text style={style.registerButtonText}>Add new Day</Text>
+                    </View>
+              </TouchableHighlight>
           </View>
     );
   }

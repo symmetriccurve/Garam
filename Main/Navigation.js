@@ -30,6 +30,7 @@ var Login = require('./LoginScreen')
 var Register = require('./Register')
 var Home = require('./Home')
 var UpdateProfile = require('./UpdateProfile')
+var AddTask = require('./AddTask')
 class Navigation extends Component {
  constructor(props){
     super(props);
@@ -106,8 +107,8 @@ class Navigation extends Component {
           case 'UpdateProfile':
                 return (<UpdateProfile {...route.passProps} navigator={navigator}/>);
             break;
-          case 'Favorites':
-                return (<Favorites {...route.passProps} navigator={navigator}/>);
+          case 'AddTask':
+                return (<AddTask {...route.passProps} navigator={navigator}/>);
             break;
           case 'Account':
                 return (<Account {...route.passProps} navigator={navigator}/>);

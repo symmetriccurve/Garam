@@ -11,60 +11,35 @@ import {
   Alert
 } from 'react-native'
 
-import * as firebase from 'firebase';
-
 import EStyleSheet from 'react-native-extended-stylesheet';
-var Home = require('./Home')
-class UpdateProfile extends Component {
+
+class AddTask extends Component {
   constructor(){
     super();
     this.state={
-      displayName:'',
-      password:'',
     }
   }
-  _updateProfile(){
-    var self = this
-    var user = firebase.auth().currentUser;
-      user.updateProfile({
-      displayName: this.state.displayName,
-      photoURL: "https://example.com/jane-q-user/profile.jpg"
-      }).then(function() {
-      self.props.navigator.push({id: "Home",title:'Home',passProps:({displayName: self.state.displayName})})
-      Alert.alert("update successful")
-      console.log("user Profile Display Name After update:", user.displayName);
-      }, function(error) {
-        Alert.alert("update unsuccessful",error)
-      });
 
-
-  }
-  render() {
+ _addNewDay(){
+   var user = firebase.auth().currentUser;
+   if (user != null) {
+         var uid = user.uid
+         var displayName = user.displayName
+         var ObjectToSet = { Tasks : {Task1: "10hrs"}}
+       firebase.database().ref('users/' + uid + '/' +displayName + '/June_17/' ).set(ObjectToSet);
+ }
+ }
+ 
+ render() {
+   var user = firebase.auth().currentUser;
     return (
-      <View style={style.container}>
-      <View style={style.innerContainer}>
-          <View style={style.usertextContainer}>
-              <TextInput
-                    value = {this.state.displayName}
-                    onChangeText={(text) => this.setState({displayName: text})}
-                    style={style.userInputText}
-                    placeholder='Username'
-                    autoCapitalize='none'
-                    autoCorrect={false}
-                    placeholderTextColor='white'
-                    />
-              <View style={style.line}/>
+          <View style={style.container}>
+              <TouchableHighlight onPress={()=>{this._addNewDay()}} underlayColor='#990000'>
+                    <View style={style.signInTextContainer}>
+                        <Text style={style.registerButtonText}>Add new task</Text>
+                    </View>
+              </TouchableHighlight>
           </View>
-          <View style={style.registerButtonContainer}>
-          <TouchableHighlight onPress={()=>{this._updateProfile()}} underlayColor='#990000'>
-                <View style={style.signInTextContainer}>
-                    <Text style={style.registerButtonText}>Update</Text>
-                </View>
-          </TouchableHighlight>
-
-          </View>
-      </View>
-      </View>
     );
   }
 }
@@ -163,4 +138,4 @@ const style = EStyleSheet.create({
   }
 
   });
-module.exports = UpdateProfile
+module.exports = AddTask

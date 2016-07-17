@@ -12,45 +12,13 @@ import {
   View
 } from 'react-native';
 
-import * as firebase from 'firebase';
-var firebaseConfig = {
-    apiKey: "AIzaSyDcJw4w_vBKn9iW0R7eO1QkQWQRkHpDn-A",
-    authDomain: "garam-d452e.firebaseapp.com",
-    databaseURL: "https://garam-d452e.firebaseio.com",
-    storageBucket: "garam-d452e.appspot.com",
-  };
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+const Login = require('./Main/LoginScreen')
+const Navigation = require('./Main/Navigation')
 
 class Garam extends Component {
   render() {
-    firebase.auth().createUserWithEmailAndPassword("vikramb@gmail.com", "somePassword").catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
-
-var user = firebase.auth().currentUser;
-
-if (user) {
-  console.log("user",user);
-} else {
-  console.log("no user Signed in");
-}
-
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+        <Navigation/>
     );
   }
 }

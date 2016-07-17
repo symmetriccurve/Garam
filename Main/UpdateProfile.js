@@ -19,17 +19,49 @@ class UpdateProfile extends Component {
   constructor(){
     super();
     this.state={
-      username:'',
+      displayName:'',
       password:'',
     }
   }
+  _updateProfile(){
+    var user = firebase.auth().currentUser;
+      user.updateProfile({
+      displayName: this.state.displayName,
+      photoURL: "https://example.com/jane-q-user/profile.jpg"
+      }).then(function() {
+      Alert.alert("update successful")
+      console.log(user);
+      }, function(error) {
+        Alert.alert("update unsuccessful",error)
+      });
 
- render() {
-   console.log("This Props", this.props);
+
+  }
+  render() {
     return (
-          <View style={style.container}>
-                  <Text> This is Main Screen </Text>
+      <View style={style.container}>
+      <View style={style.innerContainer}>
+          <View style={style.usertextContainer}>
+              <TextInput
+                    onChangeText={(text) => this.setState({displayName: text})}
+                    style={style.userInputText}
+                    placeholder='Username'
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    placeholderTextColor='white'
+                    />
+              <View style={style.line}/>
           </View>
+          <View style={style.registerButtonContainer}>
+          <TouchableHighlight onPress={()=>{this._updateProfile()}} underlayColor='#990000'>
+                <View style={style.signInTextContainer}>
+                    <Text style={style.registerButtonText}>Update</Text>
+                </View>
+          </TouchableHighlight>
+
+          </View>
+      </View>
+      </View>
     );
   }
 }

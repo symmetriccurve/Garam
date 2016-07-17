@@ -17,14 +17,14 @@ class Login extends Component {
   constructor(){
     super();
     this.state={
-      username:'a@g.com',
-      password:'123456',
+      username:'',
+      password:'',
       switchIsOn:false,
     }
   }
 
 _userLogedIn(user){
-  console.log("successful Login",user);
+  console.log("successful Login",user.displayName);
   console.log("This", this);
   if (user != null) {
     user.providerData.forEach(function (profile) {
@@ -34,7 +34,7 @@ _userLogedIn(user){
       console.log("  Email: "+profile.email);
       console.log("  Photo URL: "+profile.photoURL);
     });
-        if(user.providerData[0].displayName){
+        if(user.displayName){
           this.props.navigator.push({id: "Home",title:'Home',passProps:({someProps:'SomeProps'})})
         }else{
           this.props.navigator.push({id: "UpdateProfile",title:'Profile',passProps:({someProps:'SomeProps'})})

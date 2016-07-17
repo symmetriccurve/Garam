@@ -103,8 +103,8 @@ class Navigation extends Component {
           case 'Home':
                 return (<Home {...route.passProps} navigator={navigator}/>);
             break;
-          case 'Events':
-                return (<Events {...route.passProps} navigator={navigator}/>);
+          case 'UpdateProfile':
+                return (<UpdateProfile {...route.passProps} navigator={navigator}/>);
             break;
           case 'Favorites':
                 return (<Favorites {...route.passProps} navigator={navigator}/>);

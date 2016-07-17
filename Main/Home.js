@@ -31,7 +31,7 @@ class Home extends Component {
          var displayName = user.displayName
          var ObjectToSet = {Task0: "0hrs"}
        firebase.database().ref('users/' + uid + '/' +displayName + '/' + today + '/Tasks').update(ObjectToSet);
-       self.props.navigator.push({id: "AddTask",title:'AddTask',passProps:({date: today})})
+       self.props.navigator.pop()
  }
  }
  render() {

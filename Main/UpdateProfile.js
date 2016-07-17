@@ -34,7 +34,7 @@ class UpdateProfile extends Component {
               var uid = user.uid
               var displayName = user.displayName
               var ObjectToSet = { [displayName] : {email: "email"}}
-            firebase.database().ref('users/' + uid).set(ObjectToSet);
+            firebase.database().ref('users/' + uid + '/' +displayName + '/June_15/' ).set(ObjectToSet);
       }
       self.props.navigator.push({id: "Home",title:'Home',passProps:({displayName: self.state.displayName})})
       Alert.alert("update successful")

@@ -11,24 +11,20 @@ import {
   Alert
 } from 'react-native'
 
-import * as firebase from 'firebase';
-
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 class Home extends Component {
   constructor(){
     super();
     this.state={
-      username:'',
-      password:'',
     }
   }
 
  render() {
-   console.log("This Props displayName", this.props.displayName);
+   var user = firebase.auth().currentUser;
     return (
           <View style={style.container}>
-                  <Text> This is Main Screen </Text>
+                  <Text> Hello {user.displayName}</Text>
           </View>
     );
   }

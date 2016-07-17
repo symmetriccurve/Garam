@@ -14,7 +14,7 @@ import {
 import * as firebase from 'firebase';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
-
+var Home = require('./Home')
 class UpdateProfile extends Component {
   constructor(){
     super();
@@ -24,11 +24,13 @@ class UpdateProfile extends Component {
     }
   }
   _updateProfile(){
+    var self = this
     var user = firebase.auth().currentUser;
       user.updateProfile({
       displayName: this.state.displayName,
       photoURL: "https://example.com/jane-q-user/profile.jpg"
       }).then(function() {
+      self.props.navigator.push({id: "Home",title:'Home',passProps:({someProps:'SomeProps'})})
       Alert.alert("update successful")
       console.log(user);
       }, function(error) {
@@ -43,6 +45,7 @@ class UpdateProfile extends Component {
       <View style={style.innerContainer}>
           <View style={style.usertextContainer}>
               <TextInput
+                    value = "someRandomName"
                     onChangeText={(text) => this.setState({displayName: text})}
                     style={style.userInputText}
                     placeholder='Username'

@@ -17,8 +17,8 @@ class Login extends Component {
   constructor(){
     super();
     this.state={
-      username:'',
-      password:'',
+      username:'@g.com',
+      password:'123456',
       switchIsOn:false,
     }
   }
@@ -80,6 +80,7 @@ if (user != null) {
                   </View>
                   <View style={style.usertextContainer}>
                       <TextInput
+                            value ={this.state.username}
                             onChangeText={(text) => this.setState({username: text})}
                             style={style.userInputText}
                             placeholder='Username'
@@ -91,6 +92,7 @@ if (user != null) {
                   </View>
                   <View style={style.passTextContainer}>
                       <TextInput
+                            value ={this.state.password}
                             onChangeText={(text) => this.setState({password: text})}
                             style={style.passInputText}
                             placeholder='Password'

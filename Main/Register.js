@@ -19,8 +19,8 @@ class Register extends Component {
   constructor(){
     super();
     this.state={
-      username:'',
-      password:'',
+      username:'@g.com',
+      password:'123456',
     }
   }
 
@@ -39,6 +39,7 @@ class Register extends Component {
           <View style={style.innerContainer}>
               <View style={style.usertextContainer}>
                   <TextInput
+                        value ={this.state.username}
                         onChangeText={(text) => this.setState({username: text})}
                         style={style.userInputText}
                         placeholder='Username'
@@ -50,6 +51,7 @@ class Register extends Component {
               </View>
               <View style={style.passTextContainer}>
                   <TextInput
+                        value ={this.state.password}
                         secureTextEntry ={true}
                         onChangeText={(text) => this.setState({password: text})}
                         style={style.passInputText}

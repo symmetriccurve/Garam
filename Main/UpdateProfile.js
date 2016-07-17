@@ -15,7 +15,7 @@ import * as firebase from 'firebase';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-class Home extends Component {
+class UpdateProfile extends Component {
   constructor(){
     super();
     this.state={
@@ -128,4 +128,4 @@ const style = EStyleSheet.create({
   }
 
   });
-module.exports = Home
+module.exports = UpdateProfile

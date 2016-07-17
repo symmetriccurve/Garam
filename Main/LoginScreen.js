@@ -34,7 +34,11 @@ _userLogedIn(user){
       console.log("  Email: "+profile.email);
       console.log("  Photo URL: "+profile.photoURL);
     });
-          this.props.navigator.push({id: "Register",title:'User Register'})
+        if(user.providerData[0].displayName){
+          this.props.navigator.push({id: "Home",title:'Home',passProps:({someProps:'SomeProps'})})
+        }else{
+          this.props.navigator.push({id: "UpdateProfile",title:'Profile',passProps:({someProps:'SomeProps'})})
+        }
   }
 }
 

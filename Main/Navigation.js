@@ -28,7 +28,8 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 var Login = require('./LoginScreen')
 var Register = require('./Register')
-
+var Home = require('./Home')
+var UpdateProfile = require('./UpdateProfile')
 class Navigation extends Component {
  constructor(props){
     super(props);
@@ -99,8 +100,8 @@ class Navigation extends Component {
           case 'Register':
                 return (<Register {...route.passProps} navigator={navigator}/>);
             break;
-          case 'Alerts':
-                return (<Alerts {...route.passProps} navigator={navigator}/>);
+          case 'Home':
+                return (<Home {...route.passProps} navigator={navigator}/>);
             break;
           case 'Events':
                 return (<Events {...route.passProps} navigator={navigator}/>);

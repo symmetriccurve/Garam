@@ -27,7 +27,6 @@ class Register extends Component {
   _userLogedIn(){
     Alert.alert("user Registered. Please login to Contiue")
     this.props.navigator.push({id: "Login",title:'Home'})
-    console.log("Time toCreate a Firebase Node");
   }
 
   _registerUser(){

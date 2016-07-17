@@ -10,14 +10,14 @@ import {
   View,
   Alert
 } from 'react-native'
-
+import * as firebase from 'firebase';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 class Login extends Component {
   constructor(){
     super();
     this.state={
-      username:'@g.com',
+      username:'a@g.com',
       password:'123456',
       switchIsOn:false,
     }

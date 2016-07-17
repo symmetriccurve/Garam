@@ -30,6 +30,12 @@ class UpdateProfile extends Component {
       displayName: this.state.displayName,
       photoURL: "https://example.com/jane-q-user/profile.jpg"
       }).then(function() {
+        if (user != null) {
+              var uid = user.uid
+              var displayName = user.displayName
+              var ObjectToSet = { displayName : {email: "email"}}
+            firebase.database().ref('users/' + uid).set(ObjectToSet);
+      }
       self.props.navigator.push({id: "Home",title:'Home',passProps:({displayName: self.state.displayName})})
       Alert.alert("update successful")
       console.log("user Profile Display Name After update:", user.displayName);

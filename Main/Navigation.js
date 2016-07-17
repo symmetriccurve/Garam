@@ -17,10 +17,10 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import * as firebase from 'firebase';
 var firebaseConfig = {
-    apiKey: "AIzaSyDcJw4w_vBKn9iW0R7eO1QkQWQRkHpDn-A",
-    authDomain: "garam-d452e.firebaseapp.com",
-    databaseURL: "https://garam-d452e.firebaseio.com",
-    storageBucket: "garam-d452e.appspot.com",
+  apiKey: "AIzaSyBfgi_jQXbTyxtsC37UeVZFbWSV18LyVtU",
+   authDomain: "garampro-588bd.firebaseapp.com",
+   databaseURL: "https://garampro-588bd.firebaseio.com",
+   storageBucket: "garampro-588bd.appspot.com",
   };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);

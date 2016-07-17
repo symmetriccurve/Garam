@@ -8,57 +8,53 @@ import {
   TouchableHighlight,
   Image,
   View,
-  Alert
+  Alert,
+  ListView
 } from 'react-native'
 
 import EStyleSheet from 'react-native-extended-stylesheet';
-
-var TaskList = require('./TaskList')
-class AddTask extends Component {
+var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+class DaysList extends Component {
   constructor(){
     super();
     this.state={
     }
   }
 
- _addNewDay(){
-   var user = firebase.auth().currentUser;
-   if (user != null) {
-         var uid = user.uid
-         var displayName = user.displayName
-         var ObjectToSet = {Task6: "10hrs"}
-       firebase.database().ref('users/' + uid + '/' +displayName + '/' + this.props.date + '/Tasks' ).update(ObjectToSet);
+renderRow(rowData: string, sectionID: number, rowID: number){
+      console.log("rowData",rowData);
+         return (
+               <View style={style.listItem}>
+
+                <Text> {rowData} </Text>
+               </View>
+           );
  }
 
-  this._listOftasks()
-
- }
-
- _listOftasks(){
-   var user = firebase.auth().currentUser;
-   var uid = user.uid
-   firebase.database().ref('/users/' + uid).once('value').then(function(snapshot) {
-      console.log("snapshot",snapshot.val());
-    });
- }
-
- render() {
-   var user = firebase.auth().currentUser;
-    return (
-          <View style={style.container}>
-              <TouchableHighlight onPress={()=>{this._addNewDay()}} underlayColor='#990000'>
-                    <View style={style.signInTextContainer}>
-                        <Text style={style.registerButtonText}>Add new task</Text>
-                    </View>
-              </TouchableHighlight>
-              <TaskList/>
-          </View>
-
+ render(){
+   return(
+      <View style={style.container}>
+          <ListView style={style.list}
+                    enableEmptySections ={true}
+                    dataSource={ds.cloneWithRows(['Day 1','Day 2','Day 3'])}
+                    renderRow={this.renderRow.bind(this)}
+          />
+      </View>
     );
-  }
+ }
+
 }
 
 const style = EStyleSheet.create({
+  listItem: {
+    flex:1,
+    flexDirection: 'row',
+    height: '10%',
+    width: '100%',
+    justifyContent:'center',
+    backgroundColor:'white',
+    alignItems:'center',
+  },
   image:{
     height: '$logoImageHeight',
     width: '80%',
@@ -152,4 +148,4 @@ const style = EStyleSheet.create({
   }
 
   });
-module.exports = AddTask
+module.exports = DaysList

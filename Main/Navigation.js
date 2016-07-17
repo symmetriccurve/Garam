@@ -31,6 +31,8 @@ var Register = require('./Register')
 var Home = require('./Home')
 var UpdateProfile = require('./UpdateProfile')
 var AddTask = require('./AddTask')
+var TaskList = require('./TaskList')
+var DaysList = require('./DaysList')
 class Navigation extends Component {
  constructor(props){
     super(props);
@@ -78,12 +80,21 @@ class Navigation extends Component {
 
      },
      RightButton(route, navigator, index, navState) {
-       return <TouchableHighlight underlayColor='#990000' onPress={()=>{Actions.fetch_events(),self.openDrawer('right')}}>
-                 <Image
-                    style={styles.rightMenuIcon}
-                    source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
-                   />
-              </TouchableHighlight>
+       if(route.id == 'DaysList'){
+           return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.push({id: "Home",title:'Add Day',passProps:({props: "someProps"})})}}>
+                     <Image
+                         style={styles.LeftMenuIcon}
+                           source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
+                       />
+                  </TouchableHighlight>
+      }else if(route.id =='AlertsDetail'){
+        return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.props.navigator.push({id: "AddDay",title:'Add Day',passProps:({props: "someProps"})})}}>
+                        <Image
+                            style={styles.LeftMenuIcon}
+                              source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
+                          />
+               </TouchableHighlight>
+      }
      },
      Title(route, navigator, index, navState) {
        return <TouchableOpacity style={{flex: 1, justifyContent: 'center'}}>
@@ -110,11 +121,11 @@ class Navigation extends Component {
           case 'AddTask':
                 return (<AddTask {...route.passProps} navigator={navigator}/>);
             break;
-          case 'Account':
-                return (<Account {...route.passProps} navigator={navigator}/>);
+          case 'TaskList':
+                return (<TaskList {...route.passProps} navigator={navigator}/>);
             break;
-          case 'FavLocation':
-                return (<FavLocation {...route.passProps} navigator={navigator}/>);
+          case 'DaysList':
+                return (<DaysList {...route.passProps} navigator={navigator}/>);
             break;
           case 'Home':
                 return (<Home {...route.passProps} navigator={navigator}/>);

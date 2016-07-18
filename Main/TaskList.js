@@ -14,6 +14,8 @@ import {
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
+var TaskCard =require('./TaskCard')
 class TaskList extends Component {
   constructor(){
     super();
@@ -32,10 +34,7 @@ class TaskList extends Component {
 renderRow(rowData: string, sectionID: number, rowID: number){
       console.log("rowData",rowData);
          return (
-               <View style={style.listItem}>
-
-                <Text> {rowData} </Text>
-               </View>
+                <TaskCard/>
            );
  }
 
@@ -70,6 +69,7 @@ const style = EStyleSheet.create({
     justifyContent:'center',
   },
   container:{
+    marginTop:'10%',
     height:'100%',
     width:'100%',
     backgroundColor:'$appBackgroundColor',

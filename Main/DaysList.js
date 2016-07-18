@@ -81,7 +81,7 @@ renderRow(rowData: string, sectionID: number, rowID: number){
       console.log("Day",rowData);
       var totalTaskHours = this._totalTaskHours(rowData.Tasks)
          return (
-               <DayCard date = {rowData.Day} hours = {totalTaskHours}/>
+               <DayCard date = {rowData.Day} hours = {totalTaskHours} navigator ={this.props.navigator}/>
            );
  }
 
@@ -120,7 +120,7 @@ const style = EStyleSheet.create({
   },
   container:{
     marginTop:'10%',
-    height:'80%',
+    height:'100%',
     width:'100%',
     backgroundColor:'green',
     alignItems:'center',

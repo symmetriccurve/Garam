@@ -14,6 +14,7 @@ import {
 
 //node_modules
 import EStyleSheet from 'react-native-extended-stylesheet';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import * as firebase from 'firebase';
 var firebaseConfig = {
@@ -34,6 +35,8 @@ var AddTask = require('./AddTask')
 var TaskList = require('./TaskList')
 var DaysList = require('./DaysList')
 var DayCard = require('./DayCard')
+var AddDay = require('./AddDay')
+
 class Navigation extends Component {
  constructor(props){
     super(props);
@@ -81,20 +84,10 @@ class Navigation extends Component {
 
      },
      RightButton(route, navigator, index, navState) {
-       if(route.id == 'DaysList'){
-           return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.push({id: "Home",title:'Add Day',passProps:({props: "someProps"})})}}>
-                     <Image
-                         style={styles.LeftMenuIcon}
-                           source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
-                       />
-                  </TouchableHighlight>
-      }else if(route.id =='AlertsDetail'){
-        return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.props.navigator.push({id: "AddDay",title:'Add Day',passProps:({props: "someProps"})})}}>
-                        <Image
-                            style={styles.LeftMenuIcon}
-                              source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
-                          />
-               </TouchableHighlight>
+       if(1){
+         return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.push({id: "AddDay",title:'Add day'})}}>
+                   <Icon name="plus" color={'white'} size={30} />
+                </TouchableHighlight>
       }
      },
      Title(route, navigator, index, navState) {
@@ -131,8 +124,8 @@ class Navigation extends Component {
           case 'DayCard':
                 return (<DayCard {...route.passProps} navigator={navigator}/>);
             break;
-          case 'Work':
-                return (<Work {...route.passProps} navigator={navigator}/>);
+          case 'AddDay':
+                return (<AddDay {...route.passProps} navigator={navigator}/>);
             break;
           case 'MyCity':
                 return (<MyCity {...route.passProps} navigator={navigator}/>);

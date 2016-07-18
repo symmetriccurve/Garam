@@ -18,12 +18,13 @@ class DayCard extends Component {
   constructor(){
     super();
     this.state={
-
+      loaded: false,
+      dataSource: ['day 1','day 2']
     }
   }
 
   _takeToTasksOfTheDay(day){
-      this.props.navigator.push({id: "TaskList",title:'Tasks ',passProps:({displayName: day})})
+    console.log("Day Clicked");
   }
 
   render(){
@@ -41,7 +42,7 @@ class DayCard extends Component {
                   </View>
               </View>
               <View style={style.rightContainer}>
-                    <TouchableHighlight onPress={()=>{this._takeToTasksOfTheDay(this.props.date)}}>
+                    <TouchableHighlight onPress={()=>{this._takeToTasksOfTheDay()}}>
                         <View>
                             <Icon name="arrow-right" color={'white'} size={30} />
                         </View>

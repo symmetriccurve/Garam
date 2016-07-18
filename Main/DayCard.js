@@ -30,15 +30,14 @@ class DayCard extends Component {
   render(){
     var cardColor = 'tan'
       return(
-       <View style= {style.Maincontainer}>
           <View style={[style.container,,{backgroundColor:cardColor}]}>
               <View style={style.leftContainer}>
-                  <Text style={style.dayText}>June 15</Text>
+                  <Text style={style.dayText}>{this.props.date}</Text>
               </View>
               <View style={style.middleContainer}>
                   <View style={style.innerMiddleContainer}>
                       <View>
-                        <Text style={[style.hourText,{color:cardColor}]}>4Hrs</Text>
+                        <Text style={[style.hourText,{color:cardColor}]}>{this.props.hours}Hr</Text>
                       </View>
                   </View>
               </View>
@@ -49,8 +48,7 @@ class DayCard extends Component {
                         </View>
                     </TouchableHighlight>
               </View>
-          </View>
-      </View>);
+          </View>);
   }
 
 }
@@ -62,6 +60,8 @@ const style = EStyleSheet.create({
     marginLeft:'5%',
     marginRight: '5%',
     borderRadius: 8,
+    marginTop:'1%',
+    marginBottom: '1%',
     flexDirection:'row'
   },
   dayText:{

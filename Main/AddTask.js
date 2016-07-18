@@ -27,9 +27,9 @@ class AddTask extends Component {
          var uid = user.uid
          var displayName = user.displayName
          var day = this.props.day
-         var ObjectToSet = {TaskNumber1:{Notes:'SomeNotes',TaskHours:'TaskHours',TaskNumber:'TaskNumber1'},
-                            TaskNumber2:{Notes:'SomeNotes',TaskHours:'TaskHours',TaskNumber:'TaskNumber2'},
-                            TaskNumbe3:{Notes:'SomeNotes',TaskHours:'TaskHours',TaskNumber:'TaskNumber3'}}
+         var ObjectToSet = {TaskNumber1:{Notes:'SomeNotes',TaskHours:'TaskHours',TaskNumber:3},
+                            TaskNumber2:{Notes:'SomeNotes',TaskHours:'TaskHours',TaskNumber:4},
+                            TaskNumbe3:{Notes:'SomeNotes',TaskHours:'TaskHours',TaskNumber:6}}
        firebase.database().ref('users/' + uid + '/' + displayName + '/' + day + '/Tasks' ).update(ObjectToSet);
    }
  }

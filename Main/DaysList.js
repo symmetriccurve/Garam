@@ -66,11 +66,22 @@ _addNewTask(){
     this.props.navigator.push({id: "AddTask",title:'AddTask',passProps:({displayName: "self.state.displayName"})})
 }
 
+_totalTaskHours(Tasks){
+    var taskHours = 0
+    for(var key in Tasks ) {
+      console.log("Calculate Tasks",Tasks.TaskHours);
+      taskHours = taskHours + Tasks[key].TaskHours
+    }
+    return taskHours
+}
+
 renderRow(rowData: string, sectionID: number, rowID: number){
       console.log("rowID",rowID);
-      console.log("Day",rowData.Day);
+      if(rowID == 0) return null
+      console.log("Day",rowData);
+      var totalTaskHours = this._totalTaskHours(rowData.Tasks)
          return (
-               <DayCard/>
+               <DayCard date = {rowData.Day} hours = {totalTaskHours}/>
            );
  }
 
@@ -109,7 +120,7 @@ const style = EStyleSheet.create({
   },
   container:{
     marginTop:'10%',
-    height:'50%',
+    height:'80%',
     width:'100%',
     backgroundColor:'green',
     alignItems:'center',

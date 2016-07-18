@@ -13,7 +13,7 @@ import {
 
 var AddTask = require('./AddTask')
 import EStyleSheet from 'react-native-extended-stylesheet';
-
+var DaysList = require('./DaysList')
 class Home extends Component {
   constructor(){
     super();
@@ -39,6 +39,7 @@ class Home extends Component {
    var user = firebase.auth().currentUser;
     return (
           <View style={style.container}>
+              <DaysList navigator ={this.props.navigator}/>
               <TouchableHighlight onPress={()=>{this._addNewDay()}} underlayColor='#990000'>
                     <View style={style.signInTextContainer}>
                         <Text style={style.registerButtonText}>Add new Day</Text>

@@ -40,25 +40,30 @@ class DaysList extends Component {
   }
 
 _renderTasksList(Tasks){
-    for(var key in Tasks){
-      console.log("Tasks[key]",Tasks[key]);
-    }
+      console.log("Tasks",Tasks);
+      for(var key in Tasks){
+        console.log(Tasks[key]);
+      }
 }
-
+//
+// return (
+//   <View>
+//       <Text> {Task.TaskNumber} </Text>
+//       <Text> {Task.TaskHours} </Text>
+//       <Text> {Task.Notes} </Text>
+//   </View>
+//     );
 _addNewTask(){
     this.props.navigator.push({id: "AddTask",title:'AddTask',passProps:({displayName: "self.state.displayName"})})
 }
 
 renderRow(rowData: string, sectionID: number, rowID: number){
-      console.log("Day from list",rowData);
+      console.log("rowID",rowID);
+      console.log("Day",rowData.Day);
          return (
                <View style={style.listItem}>
-                 <TouchableHighlight onPress={()=>{this._addNewTask()}} underlayColor='#990000'>
-                       <View style={style.signInTextContainer}>
-                           <Text style={style.registerButtonText}>Add new task</Text>
-                       </View>
-                 </TouchableHighlight>
-                 <Text style={rowData.day}>Add new task</Text>
+                 <Text style={rowData.day}>{rowData.Day}</Text>
+                  {this._renderTasksList(rowData.Tasks)}
                </View>
            );
  }
@@ -74,7 +79,6 @@ renderRow(rowData: string, sectionID: number, rowID: number){
                     dataSource={ds.cloneWithRows(this.state.dataSource)}
                     renderRow={this.renderRow.bind(this)}
           />
-          <Home navigator = {this.props.navigator}/>
       </View>
     );
  }

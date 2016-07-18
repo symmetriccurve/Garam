@@ -33,7 +33,7 @@ class UpdateProfile extends Component {
         if (user != null) {
               var uid = user.uid
               var displayName = user.displayName
-              var ObjectToSet = { [displayName] : {email: "email"}}
+              var ObjectToSet = { [displayName] : {displayName: displayName }}
             firebase.database().ref('users/' + uid).set(ObjectToSet);
       }
       self.props.navigator.push({id: "Home",title:'Home',passProps:({displayName: self.state.displayName})})
@@ -42,8 +42,6 @@ class UpdateProfile extends Component {
       }, function(error) {
         Alert.alert("update unsuccessful",error)
       });
-
-
   }
   render() {
     return (

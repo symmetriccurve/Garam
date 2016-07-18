@@ -23,14 +23,14 @@ class Home extends Component {
 
  _addNewDay(){
    var today = new Date()
-   var today = today.toString().slice(4, -29)
+   var today = "june20"//today.toString().slice(4, -29)
    var user = firebase.auth().currentUser;
    var self = this
    if (user != null) {
          var uid = user.uid
          var displayName = user.displayName
-         var ObjectToSet = {Task0: "0hrs"}
-       firebase.database().ref('users/' + uid + '/' +displayName + '/' + today + '/Tasks').update(ObjectToSet);
+         var ObjectToSet = {june25:{Tasks:{Task0: "0hrs"},Day:"june25"}}
+       firebase.database().ref('users/' + uid + '/' +displayName).update(ObjectToSet);
        self.props.navigator.pop()
  }
  }

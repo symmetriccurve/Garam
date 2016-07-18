@@ -18,7 +18,22 @@ class DaysList extends Component {
   constructor(){
     super();
     this.state={
+      dataSource: ['day 1','day 2']
     }
+  }
+
+  componentDidMount(){
+    var self = this
+      var user = firebase.auth().currentUser;
+      var uid = user.uid
+      firebase.database().ref('/users/' + uid +'/' + user.displayName ).on('value',function(snapshot){
+         var daysList   = Object.keys(snapshot.val()).map(function(k) { return snapshot.val()[k] })
+         console.log("snapshot.val()",snapshot.val());
+         console.log("daysList",daysList);
+         self.setState({
+           dataSource: daysList
+         })
+       });
   }
 
 renderRow(rowData: string, sectionID: number, rowID: number){
@@ -26,7 +41,7 @@ renderRow(rowData: string, sectionID: number, rowID: number){
          return (
                <View style={style.listItem}>
 
-                <Text> {rowData} </Text>
+                <Text> {rowData.Day}</Text>
                </View>
            );
  }
@@ -36,7 +51,7 @@ renderRow(rowData: string, sectionID: number, rowID: number){
       <View style={style.container}>
           <ListView style={style.list}
                     enableEmptySections ={true}
-                    dataSource={ds.cloneWithRows(['Day 1','Day 2','Day 3'])}
+                    dataSource={ds.cloneWithRows(this.state.dataSource)}
                     renderRow={this.renderRow.bind(this)}
           />
       </View>

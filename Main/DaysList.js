@@ -14,6 +14,7 @@ import {
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 var Home = require('./Home')
+var DayCard = require('./DayCard')
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 class DaysList extends Component {
   constructor(){
@@ -69,10 +70,7 @@ renderRow(rowData: string, sectionID: number, rowID: number){
       console.log("rowID",rowID);
       console.log("Day",rowData.Day);
          return (
-               <View style={style.listItem}>
-                 <Text style={rowData.day}>{rowData.Day}</Text>
-                  {this._renderTasksList(rowData.Tasks)}
-               </View>
+               <DayCard/>
            );
  }
 

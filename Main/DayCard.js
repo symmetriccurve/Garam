@@ -11,7 +11,7 @@ import {
   Alert,
   ListView
 } from 'react-native'
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 class DayCard extends Component {
@@ -23,8 +23,7 @@ class DayCard extends Component {
     }
   }
 
-  _takeToTasksOfDay(day){
-
+  _takeToTasksOfTheDay(day){
     console.log("Day Clicked");
   }
 
@@ -44,9 +43,9 @@ class DayCard extends Component {
                   </View>
               </View>
               <View style={style.rightContainer}>
-                    <TouchableHighlight onPress={()=>{this._takeToTasksOfDay()}}>
+                    <TouchableHighlight onPress={()=>{this._takeToTasksOfTheDay()}}>
                         <View>
-                          
+                            <Icon name="arrow-right" color={'white'} size={30} />
                         </View>
                     </TouchableHighlight>
               </View>
@@ -106,8 +105,10 @@ const style = EStyleSheet.create({
   },
 
   rightContainer:{
+    alignItems:'center',
+    justifyContent:'center',
     height : '10%',
-    backgroundColor:'lightblue',
+    //backgroundColor:'lightblue',
     width:'10%'
   },
 

@@ -33,6 +33,7 @@ var UpdateProfile = require('./UpdateProfile')
 var AddTask = require('./AddTask')
 var TaskList = require('./TaskList')
 var DaysList = require('./DaysList')
+var DayCard = require('./DayCard')
 class Navigation extends Component {
  constructor(props){
     super(props);
@@ -127,8 +128,8 @@ class Navigation extends Component {
           case 'DaysList':
                 return (<DaysList {...route.passProps} navigator={navigator}/>);
             break;
-          case 'Home':
-                return (<Home {...route.passProps} navigator={navigator}/>);
+          case 'DayCard':
+                return (<DayCard {...route.passProps} navigator={navigator}/>);
             break;
           case 'Work':
                 return (<Work {...route.passProps} navigator={navigator}/>);

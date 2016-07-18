@@ -84,10 +84,14 @@ class Navigation extends Component {
 
      },
      RightButton(route, navigator, index, navState) {
-       if(1){
+       if(route.id == 'DaysList'){
          return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.push({id: "AddDay",title:'Add day'})}}>
                    <Icon name="plus" color={'white'} size={30} />
                 </TouchableHighlight>
+      }else{
+        return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.push({id: "AddTask",title:'Add Task'})}}>
+                  <Icon name="plus" color={'white'} size={30} />
+               </TouchableHighlight>
       }
      },
      Title(route, navigator, index, navState) {

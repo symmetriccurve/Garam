@@ -40,10 +40,8 @@ class DaysList extends Component {
   }
 
 _renderTasksList(Tasks){
-      console.log("Tasks",Tasks);
-      for(var key in Tasks){
-        console.log(Tasks[key]);
-      }
+      console.log("Tasks", Tasks);
+      console.log("Removed Tasks",Tasks);
 }
 //
 // return (

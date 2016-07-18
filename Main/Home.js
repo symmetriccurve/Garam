@@ -30,7 +30,7 @@ class Home extends Component {
          var uid = user.uid
          var day = 'june3'
          var displayName = user.displayName
-         var ObjectToSet = {[day]:{Tasks:{Task0: "0hrs"},Day:day}}
+         var ObjectToSet = {[day]:{Day:day}}
        firebase.database().ref('users/' + uid + '/' + displayName).update(ObjectToSet);
        this.props.navigator.push({id: "AddTask",title:'AddTask',passProps:({day: day})})
  }

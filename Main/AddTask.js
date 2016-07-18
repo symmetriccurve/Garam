@@ -21,26 +21,29 @@ class AddTask extends Component {
     }
   }
 
- _addNewDay(){
+ _addNewTask(){
    var user = firebase.auth().currentUser;
    if (user != null) {
          var uid = user.uid
          var displayName = user.displayName
-         var ObjectToSet = {Task6: "10hrs"}
-       firebase.database().ref('users/' + uid + '/' +displayName + '/' + this.props.date + '/Tasks' ).update(ObjectToSet);
+         var day = this.props.day
+         var ObjectToSet = {TaskNumber1:{Notes:'SomeNotes',TaskHours:'TaskHours',TaskNumber:'TaskNumber1'},
+                            TaskNumber2:{Notes:'SomeNotes',TaskHours:'TaskHours',TaskNumber:'TaskNumber2'},
+                            TaskNumbe3:{Notes:'SomeNotes',TaskHours:'TaskHours',TaskNumber:'TaskNumber3'}}
+       firebase.database().ref('users/' + uid + '/' + displayName + '/' + day + '/Tasks' ).update(ObjectToSet);
    }
  }
 
  render() {
+   console.log("This dot props", this.props);
    var user = firebase.auth().currentUser;
     return (
           <View style={style.container}>
-              <TouchableHighlight onPress={()=>{this._addNewDay()}} underlayColor='#990000'>
+              <TouchableHighlight onPress={()=>{this._addNewTask()}} underlayColor='#990000'>
                     <View style={style.signInTextContainer}>
                         <Text style={style.registerButtonText}>Add new task</Text>
                     </View>
               </TouchableHighlight>
-              <TaskList/>
           </View>
 
     );

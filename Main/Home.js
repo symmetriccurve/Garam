@@ -28,10 +28,11 @@ class Home extends Component {
    var self = this
    if (user != null) {
          var uid = user.uid
+         var day = 'june34'
          var displayName = user.displayName
-         var ObjectToSet = {june25:{Tasks:{Task0: "0hrs"},Day:"june25"}}
-       firebase.database().ref('users/' + uid + '/' +displayName).update(ObjectToSet);
-       self.props.navigator.pop()
+         var ObjectToSet = {[day]:{Tasks:{Task0: "0hrs"},Day:"june30"}}
+       firebase.database().ref('users/' + uid + '/' + displayName).update(ObjectToSet);
+       this.props.navigator.push({id: "AddTask",title:'AddTask',passProps:({day: day})})
  }
  }
  render() {
@@ -56,11 +57,9 @@ const style = EStyleSheet.create({
     justifyContent:'center',
   },
   container:{
-    height:'100%',
+    height:'50%',
     width:'100%',
     backgroundColor:'$appBackgroundColor',
-    alignItems:'center',
-    justifyContent:'center'
   },
   innerContainer:{
       height:'70%',

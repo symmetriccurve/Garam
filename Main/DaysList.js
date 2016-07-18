@@ -13,11 +13,13 @@ import {
 } from 'react-native'
 
 import EStyleSheet from 'react-native-extended-stylesheet';
+var Home = require('./Home')
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 class DaysList extends Component {
   constructor(){
     super();
     this.state={
+      loaded: false,
       dataSource: ['day 1','day 2']
     }
   }
@@ -31,22 +33,40 @@ class DaysList extends Component {
          console.log("snapshot.val()",snapshot.val());
          console.log("daysList",daysList);
          self.setState({
+           loaded: true,
            dataSource: daysList
          })
        });
   }
 
+_renderTasksList(Tasks){
+    for(var key in Tasks){
+      console.log("Tasks[key]",Tasks[key]);
+    }
+}
+
+_addNewTask(){
+    this.props.navigator.push({id: "AddTask",title:'AddTask',passProps:({displayName: "self.state.displayName"})})
+}
+
 renderRow(rowData: string, sectionID: number, rowID: number){
-      console.log("rowData",rowData);
+      console.log("Day from list",rowData);
          return (
                <View style={style.listItem}>
-
-                <Text> {rowData.Day}</Text>
+                 <TouchableHighlight onPress={()=>{this._addNewTask()}} underlayColor='#990000'>
+                       <View style={style.signInTextContainer}>
+                           <Text style={style.registerButtonText}>Add new task</Text>
+                       </View>
+                 </TouchableHighlight>
+                 <Text style={rowData.day}>Add new task</Text>
                </View>
            );
  }
 
  render(){
+   if(0){
+     return <View/>
+   }
    return(
       <View style={style.container}>
           <ListView style={style.list}
@@ -54,6 +74,7 @@ renderRow(rowData: string, sectionID: number, rowID: number){
                     dataSource={ds.cloneWithRows(this.state.dataSource)}
                     renderRow={this.renderRow.bind(this)}
           />
+          <Home navigator = {this.props.navigator}/>
       </View>
     );
  }
@@ -77,9 +98,10 @@ const style = EStyleSheet.create({
     justifyContent:'center',
   },
   container:{
-    height:'100%',
+    marginTop:'10%',
+    height:'50%',
     width:'100%',
-    backgroundColor:'$appBackgroundColor',
+    backgroundColor:'green',
     alignItems:'center',
     justifyContent:'center'
   },

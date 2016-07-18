@@ -64,7 +64,7 @@ renderRow(rowData: string, sectionID: number, rowID: number){
  }
 
  render(){
-   if(0){
+   if(!this.state.loaded){
      return <View/>
    }
    return(

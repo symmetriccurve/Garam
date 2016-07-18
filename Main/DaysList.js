@@ -40,17 +40,27 @@ class DaysList extends Component {
   }
 
 _renderTasksList(Tasks){
-      console.log("Tasks", Tasks);
-      console.log("Removed Tasks",Tasks);
+       console.log("Tasks", Tasks);
+       var TasksArray = []
+       for(var key in Tasks ) {
+         TasksArray.push(Tasks[key])
+       }
+
+       return(
+          TasksArray.map(function(eachTask) {
+              console.log("eachTask",eachTask);
+            return(
+              <View key= {eachTask.TaskNumber+ 'someText'} style={{flex:1,backgroundColor:'tan',width:100,height:100}}>
+                           <Text key = {1} style={{backgroundColor:'lightblue',height:15}}> {eachTask.TaskNumber} </Text>
+                           <Text key = {2} style={{backgroundColor:'coral'}}> {eachTask.TaskHours} </Text>
+                           <Text key = {3} style={{backgroundColor:'yellow'}}> {eachTask.Notes} </Text>
+              </View>
+            );
+          })
+       );
+
 }
-//
-// return (
-//   <View>
-//       <Text> {Task.TaskNumber} </Text>
-//       <Text> {Task.TaskHours} </Text>
-//       <Text> {Task.Notes} </Text>
-//   </View>
-//     );
+
 _addNewTask(){
     this.props.navigator.push({id: "AddTask",title:'AddTask',passProps:({displayName: "self.state.displayName"})})
 }

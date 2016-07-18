@@ -28,7 +28,7 @@ class Home extends Component {
    var self = this
    if (user != null) {
          var uid = user.uid
-         var day = 'june3'
+         var day = 'june5'
          var displayName = user.displayName
          var ObjectToSet = {[day]:{Day:day}}
        firebase.database().ref('users/' + uid + '/' + displayName).update(ObjectToSet);

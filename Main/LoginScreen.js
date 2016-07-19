@@ -35,6 +35,7 @@ class Login extends Component {
 
   _popNavigation() {
      this.props.navigator.pop();
+      //To-do: back button on Login Screen should close the application 
      return true
   }
 

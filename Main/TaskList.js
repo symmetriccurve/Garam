@@ -58,9 +58,7 @@ const style = EStyleSheet.create({
     flexDirection: 'row',
     height: '10%',
     width: '100%',
-    justifyContent:'center',
     backgroundColor:'white',
-    alignItems:'center',
   },
   image:{
     height: '$logoImageHeight',
@@ -73,8 +71,6 @@ const style = EStyleSheet.create({
     height:'100%',
     width:'100%',
     backgroundColor:'$appBackgroundColor',
-    alignItems:'center',
-    justifyContent:'center'
   },
   innerContainer:{
       height:'70%',

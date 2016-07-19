@@ -8,16 +8,22 @@ import {
   TouchableHighlight,
   Image,
   View,
-  Alert
+  Alert,
+  DatePickerIOS
 } from 'react-native'
 
 import EStyleSheet from 'react-native-extended-stylesheet';
+import DatePicker from 'react-native-datepicker';
 
 class AddDay extends Component {
   constructor(){
     super();
     this.state={
-    }
+      date: '2016-05-11',
+      time: '20:00',
+      datetime: '2016-05-05 20:00',
+      datetime1: '2016-05-05 20:00'
+    };
   }
 
  _addNewTask(){
@@ -35,109 +41,47 @@ class AddDay extends Component {
 
  render() {
     return (
-          <View style={style.container}>
-              <TouchableHighlight onPress={()=>{this._addNewDay()}} underlayColor='#990000'>
-                    <View style={style.signInTextContainer}>
-                        <Text style={style.registerButtonText}>Add new Day</Text>
-                    </View>
-              </TouchableHighlight>
+          <View style={styles.container}>
+          <Text style={styles.welcome}>
+          Welcome to react-native-datepicker example!
+        </Text>
+        <DatePicker
+          style={{width: 300}}
+          date={this.state.date}
+          mode="date"
+          format="YYYY-MM-DD"
+          minDate="2016-05-01"
+          maxDate="2016-06-01"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          //iconSource={require('./google_calendar.png')}
+          onDateChange={(date) => {this.setState({date: date});}}
+        >
+
+          <Text style={{height:20,width:20,backgroundColor:'black'}}> Hello </Text>
+        </DatePicker>
           </View>
     );
   }
 }
 
-  const style = EStyleSheet.create({
-    image:{
-      height: '$logoImageHeight',
-      width: '80%',
-      alignItems:'center',
-      justifyContent:'center',
-    },
-    container:{
-      alignItems:'center',
-      justifyContent:'center',
-      height:'100%',
-      width:'100%',
-      backgroundColor:'$appBackgroundColor',
-    },
-    innerContainer:{
-        height:'70%',
-        width:'80%',
-        //backgroundColor:'peachpuff'
-    },
-    imageContainer:{
-      paddingTop:'10%'
-    },
-    usertextContainer:{
-      //backgroundColor:'tan',
-      marginTop:'10%'
-    },
-    passTextContainer:{
-      //backgroundColor:'lightblue',
-      marginTop:'5%'
-    },
-    line:{
-      '@media ios': { // media query
-        height: 1,
-      },
-      '@media android': { // media query- Android has a underbar which highlights when text input is focused
-        height: 0,
-      },
-      backgroundColor:'white',
-    },
-    registerContainer:{
-      marginTop:'2%',
-      //backgroundColor:'coral'
-    },
-    switchContainer:{
-      flexDirection:'row',
-      justifyContent:'flex-start',
-      alignItems:'center',
-      height:'10%',
-    },
-    remTextContainer:{
-      fontSize:'$inputTextFontSize',
-      color:'$appTextColor',
-      paddingLeft:'5%'
-    },
-    signInButtonContainer:{
-      marginTop:'2%',
-    },
-    signInTextContainer:{
-      alignItems:'center',
-      justifyContent:'center',
-      height:'5%',
-      borderColor:'$appTextColor',
-      borderWidth:'0.02 * $logoImageHeight',
-      borderRadius:5
-    },
-    signInText:{
-      fontSize:'$inputTextFontSize',
-      color:'$appTextColor',
-      fontWeight:'bold'
-    },
-    registerButtonContainer:{
-      height:'5%',
-      marginTop:'2%',
-      alignItems:'center',
-      justifyContent:'center'
-    },
-    registerButtonText:{
-      fontSize:'$inputTextFontSize',
-      color:'$appTextColor',
-      fontWeight:'bold'
-    },
-    userInputText:{
-      height:'$textBoxHeight',
-      fontSize:'$inputTextFontSize'
-    },
-    passInputText:{
-      height:'$textBoxHeight',
-      fontSize:'$inputTextFontSize'
-    },
-    SwitchControl:{
-      height:'$textBoxHeight',
-    }
+const styles = StyleSheet.create({
+container: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '#F5FCFF'
+},
+welcome: {
+  fontSize: 20,
+  textAlign: 'center',
+  margin: 10
+},
+instructions: {
+  textAlign: 'center',
+  color: '#333333',
+  marginBottom: 5
+}
+});
 
-    });
 module.exports = AddDay

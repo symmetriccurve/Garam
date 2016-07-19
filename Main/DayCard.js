@@ -27,26 +27,24 @@ class DayCard extends Component {
   }
 
   render(){
-    var cardColor = 'tan'
+    var cardColor = this.props.color
       return(
           <View style={[style.container,,{backgroundColor:cardColor}]}>
               <View style={style.leftContainer}>
                   <Text style={style.dayText}>{this.props.date}</Text>
               </View>
               <View style={style.middleContainer}>
-                  <View style={style.innerMiddleContainer}>
                       <View>
-                        <Text style={[style.hourText,{color:cardColor}]}>{this.props.hours}Hr</Text>
+                        <Text style={[style.hourText,{color:'white'}]}>{this.props.hours}Hr</Text>
                       </View>
-                  </View>
               </View>
-              <View style={style.rightContainer}>
+              {/*<View style={style.rightContainer}>
                     <TouchableHighlight onPress={()=>{this._takeToTasksOfTheDay(this.props.date)}}>
                         <View>
                             <Icon name="arrow-right" color={'white'} size={30} />
                         </View>
                     </TouchableHighlight>
-              </View>
+              </View>*/}
           </View>);
   }
 
@@ -66,14 +64,13 @@ const style = EStyleSheet.create({
   dayText:{
     color:'white',
     fontWeight:'800',
-    fontSize:35,
-    fontFamily:'Verdana'
+    fontSize:35
   },
 
   hourText:{
     color:'white',
     fontWeight:'800',
-    fontSize:23,
+    fontSize:30,
     fontFamily:'Verdana'
   },
 
@@ -82,15 +79,16 @@ const style = EStyleSheet.create({
     justifyContent:'center',
     height:'8%',
     width: '20%',
-    backgroundColor:'white',
-    opacity: 0.8,
+    //backgroundColor:'white',
+    //opacity: 0.8,
     borderRadius: 20,
   },
 
   leftContainer:{
-    alignItems:'center',
+    //alignItems:'center',
     justifyContent:'center',
     height : '10%',
+    marginLeft:'5%',
   //  backgroundColor:'tan',
     width:'50%'
   },
@@ -99,7 +97,7 @@ const style = EStyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     height : '10%',
-  //  backgroundColor:'coral',
+    //backgroundColor:'coral',
     width:'30%'
   },
 
@@ -108,7 +106,7 @@ const style = EStyleSheet.create({
     justifyContent:'center',
     height : '10%',
     //backgroundColor:'lightblue',
-    width:'10%'
+    //width:'10%'
   },
 
   Maincontainer:{

@@ -28,25 +28,25 @@ class DayCard extends Component {
   }
 
   render(){
-    var cardColor = 'tan'
+    var cardColor = this.props.color
       return(
           <View style={[style.container,,{backgroundColor:cardColor}]}>
               <View style={style.leftContainer}>
-                  <Text style={style.dayText}>{this.props.date}</Text>
+                  <Text style={style.dayText}>NPDIDS 2016</Text>
               </View>
               <View style={style.middleContainer}>
                   <View style={style.innerMiddleContainer}>
                       <View>
-                        <Text style={[style.hourText,{color:cardColor}]}>{this.props.hours}Hr</Text>
+                        <Text style={[style.hourText,{color:'white'}]}>4Hr</Text>
                       </View>
                   </View>
               </View>
               <View style={style.rightContainer}>
-                    <TouchableHighlight onPress={()=>{this._takeToTasksOfTheDay()}}>
+                    {/*<TouchableHighlight onPress={()=>{this._takeToTasksOfTheDay()}}>
                         <View>
                             <Icon name="arrow-right" color={'white'} size={30} />
                         </View>
-                    </TouchableHighlight>
+                    </TouchableHighlight>*/}
               </View>
           </View>);
   }
@@ -56,7 +56,7 @@ class DayCard extends Component {
 const style = EStyleSheet.create({
   container: {
     height : '10%',
-    width  : '90%',
+    width  : '75%',
     marginLeft:'5%',
     marginRight: '5%',
     borderRadius: 8,
@@ -67,7 +67,7 @@ const style = EStyleSheet.create({
   dayText:{
     color:'white',
     fontWeight:'800',
-    fontSize:35,
+    fontSize:23,
     fontFamily:'Verdana'
   },
 
@@ -82,9 +82,6 @@ const style = EStyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     height:'8%',
-    width: '20%',
-    backgroundColor:'white',
-    opacity: 0.8,
     borderRadius: 20,
   },
 

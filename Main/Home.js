@@ -38,14 +38,19 @@ class Home extends Component {
  render() {
    var user = firebase.auth().currentUser;
     return (
-          <View style={style.container}>
-              <DaysList navigator ={this.props.navigator}/>
-              <TouchableHighlight onPress={()=>{this._addNewDay()}} underlayColor='#990000'>
-                    <View style={style.signInTextContainer}>
-                        <Text style={style.registerButtonText}>Add new Day</Text>
-                    </View>
-              </TouchableHighlight>
-          </View>
+          // <View style={style.container}>
+          //     <DaysList navigator ={this.props.navigator}/>
+          //     <TouchableHighlight onPress={()=>{this._addNewDay()}} underlayColor='#990000'>
+          //           <View style={style.signInTextContainer}>
+          //               <Text style={style.registerButtonText}>Add new Day</Text>
+          //           </View>
+          //     </TouchableHighlight>
+          // </View>
+        <View>
+          {/*<DayCard/>
+          <DayCard/>
+          <DayCard/>*/}
+        </View>
     );
   }
 }

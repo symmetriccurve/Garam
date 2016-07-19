@@ -8,7 +8,8 @@ import {
   TouchableHighlight,
   Image,
   View,
-  Alert
+  Alert,
+  BackAndroid
 } from 'react-native'
 import * as firebase from 'firebase';
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -16,11 +17,25 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 class Login extends Component {
   constructor(){
     super();
+    this._popNavigation = this._popNavigation.bind(this);
     this.state={
       username:'aparna@g.com',
       password:'aparna',
       switchIsOn:false,
     }
+  }
+
+  componentDidMount() {
+       BackAndroid.addEventListener('hardwareBackPress', this._popNavigation);
+   }
+
+  componentWillUnmount() {
+       BackAndroid.removeEventListener('hardwareBackPress', this._popNavigation);
+  }
+
+  _popNavigation() {
+     this.props.navigator.pop();
+     return true
   }
 
 _userLogedIn(user){

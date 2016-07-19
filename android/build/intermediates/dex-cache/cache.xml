@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/Garam/react-native-vector-icons/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="280528a77d2070d159e90d03caa880cd5bf27a92">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-24ac83f55b43e6f8c179b5376e7c7e052e8a9785.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3341b66c54367e777a0647e2db96c045329bfeab">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-b83d0dec865612b8e0624382486bf0622d965fde.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2b8a01ad9da5d26d0067894c22e87597bca2c500">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-01d27cd97505e07af0b8a71a1d9f74d78e743837.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.1-3a1a19b5937f8b5351b7f585aacaea3571ec63b6.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.3/1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14/jackson-core-2.2.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.3-521ec4a82e810a0d0d599cec8f0b9309ad65c5af.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-52dd7877fa3e0e3ceb9e31a8fab3f6762658626f.jar" />
+    </item>
+    <item
+        jar="/usr/local/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.1-87df189817b5c5dfc0d5feaf3f594729d998d389.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.29.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="df1b0521110b83f19a910c45f4de2a39433d9883">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-a55d33494818859233adf3b44a92678501f9e116.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/okhttp-3.2.0-7a30cc708701cb09d6cac5b0d48e11c0b27e93bc.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-7fd5e5d4eb662a0696d37bd954a109573b89e939.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.29.1/jars/libs/infer-annotations-1.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="43192dd699d15d6b76a1090d36f32a0f8932d52d">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5-3190d5ef5a5086cc67c80e5283eab19bf5cce5cc.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.2.0/6f8a4b1435c9e0a6f9c5fe4a1be46627b848fd0c/okhttp-urlconnection-3.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6f8a4b1435c9e0a6f9c5fe4a1be46627b848fd0c">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.2.0-93a63948f198be11c42199fc59c0a76595baa0a9.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-144913a0fcc5249d357f93ad17ad9040e9f26f03.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-9a8f9e3086987942a64d671669d867de9e53ea20.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-ws/3.2.0/1ea229d6984444c8c58b8e97ba4c8429d9d135b3/okhttp-ws-3.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1ea229d6984444c8c58b8e97ba4c8429d9d135b3">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-3.2.0-27540a8d37a63f41bc49b001674165d5d34a8de0.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0-2898828bc20ac4a5cd8334b37c484f1a6a9ccaf2.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/okio-1.8.0-41454d0f2a7e95e1d82c188f98015d94e6b0cc7b.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0-c8ef97249a4858259d2201c6986b74fa2f1f22e2.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-3abad85fbf96389260af33193d1c4d0020167df5.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/library-2.4.0-b0d6ec7240266bc42f2e54b395e2c3532b208d92.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="98786c1770b531b9194fb6448b2a2692c64074b6">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-900ee35ab457c98c4ee2faf82e9d11bb87db88ee.jar" />
+    </item>
+    <item
+        jar="/Users/beldevi/garamBit/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ca63c521b5745ae9a09629d7ca67ff6bc2a967fe">
+        <dex dex="/Users/beldevi/garamBit/android/app/build/intermediates/pre-dexed/debug/classes-027afa71930b5ab517567267e7ad176765c4df78.jar" />
+    </item>
+
+</items>

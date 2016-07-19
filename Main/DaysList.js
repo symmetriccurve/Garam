@@ -28,7 +28,7 @@ class DaysList extends Component {
   }
 
   componentDidMount(){
-    var self = this
+      var self = this
       var user = firebase.auth().currentUser;
       var uid = user.uid
       firebase.database().ref('/users/' + uid +'/' + user.displayName ).on('value',function(snapshot){

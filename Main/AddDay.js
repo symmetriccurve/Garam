@@ -9,7 +9,8 @@ import {
   Image,
   View,
   Alert,
-  DatePickerIOS
+  DatePickerIOS,
+  BackAndroid
 } from 'react-native'
 
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -40,6 +41,19 @@ class AddDay extends Component {
  }
 
  render() {
+   var self = this
+   console.log("This", this);
+   BackAndroid.addEventListener('hardwareBackPress', function() {
+     return false
+    // console.log("self.props.navigator.getCurrentRoutes()",self.props.navigator.getCurrentRoutes());
+    //  if (self.props.navigator.getCurrentRoutes()[1].id == 'DaysList') {
+    //    self.props.navigator.pop()
+    //    return true;
+    //  }else{
+    //     console.log("self.props.navigator.getCurrentRoutes()[0]",self.props.navigator.getCurrentRoutes()[0].id == "DaysList");
+    //  }
+    //  return false;
+   });
     return (
           <View style={styles.container}>
           <Text style={styles.welcome}>

@@ -17,6 +17,7 @@ var DaysList = require('./DaysList')
 class Home extends Component {
   constructor(){
     super();
+    this._pasEditUnmountFunction = this._pasEditUnmountFunction.bind(this);
     this.state={
     }
   }
@@ -35,6 +36,20 @@ class Home extends Component {
        this.props.navigator.push({id: "AddTask",title:'AddTask',passProps:({day: day})})
  }
  }
+
+ componentDidMount() {
+      BackAndroid.addEventListener('hardwareBackPress', this._pasEditUnmountFunction);
+  }
+
+ componentWillUnmount() {
+      BackAndroid.removeEventListener('hardwareBackPress', this._pasEditUnmountFunction);
+ }
+
+ _popNavigation() {
+    this.props.navigator.pop();
+    return true
+ }
+
  render() {
    var user = firebase.auth().currentUser;
     return (

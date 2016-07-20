@@ -98,14 +98,14 @@ renderRow(rowData: string, sectionID: number, rowID: number){
                     dataSource={ds.cloneWithRows(this.state.dataSource)}
                     renderRow={this.renderRow.bind(this)}
           />*/}
-          <DayCard date= 'june 15' color = '#e93578'/>
-          <TaskCard color = '#f06e9c'/>
-          <TaskCard color = '#f06e9c'/>
-          <TaskCard color = '#f06e9c'/>
-          <DayCard date= 'june 16' color = '#3d8af7'/>
+          <DayCard date= 'June 15' color = '#ffffff' fontColor = '#787878'/>
+          <TaskCard color = '#ffffff' fontColor = '#787878'/>
+          <TaskCard color = '#ffffff' fontColor = '#787878'/>
+          <TaskCard color = '#ffffff' fontColor = '#787878'/>
+          <DayCard date= 'June 16' color = '#3d8af7'/>
           <TaskCard color = '#75a9f9'/>
           <TaskCard color = '#75a9f9'/>
-          <DayCard date= 'june 17' color = '#ff5d55'/>
+          <DayCard date= 'June 17' color = '#ff5d55'/>
           <TaskCard color = '#ff8a84'/>
           <TaskCard color = '#ff8a84'/>
           <TaskCard color = '#ff8a84'/>
@@ -136,7 +136,7 @@ const style = EStyleSheet.create({
     marginTop:'10%',
     height:'100%',
     width:'100%',
-    //backgroundColor:'green',
+    backgroundColor:'#ebebeb',
     //alignItems:'center',
     //justifyContent:'center'
   },

@@ -9,7 +9,8 @@ import {
   Image,
   View,
   Alert,
-  BackAndroid
+  BackAndroid,
+  ToastAndroid
 } from 'react-native'
 import * as firebase from 'firebase';
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -34,10 +35,21 @@ class Login extends Component {
   }
 
   _popNavigation() {
-     this.props.navigator.pop();
-      //To-do: back button on Login Screen should close the application 
-     return true
-  }
+      if (this.props.navigator.getCurrentRoutes().length > 1) {
+          this.props.navigator.pop();
+          ToastAndroid.show('Click Again to exit', ToastAndroid.SHORT);
+          return true;
+      }
+      //     var time = (new Date()).getTime();
+      // if (time - Globals.timer > 3000) {
+      //     Globals.timer = time;
+      //     ToastAndroid.show('Click Again to exit', ToastAndroid.SHORT);
+      //     return true;
+      // }
+      //     return false;
+            //To-do: back button on Login Screen should close the application
+           return true
+}
 
 _userLogedIn(user){
   console.log("successful Login",user.displayName);

@@ -29,15 +29,16 @@ class DayCard extends Component {
 
   render(){
     var cardColor = this.props.color
+    var fontColor = this.props.fontColor
       return(
           <View style={[style.container,,{backgroundColor:cardColor}]}>
               <View style={style.leftContainer}>
-                  <Text style={style.dayText}>NPDIDS 2016</Text>
+                  <Text style={[style.dayText,{color: fontColor}]}>NPDIDS 2016</Text>
               </View>
               <View style={style.middleContainer}>
                   <View style={style.innerMiddleContainer}>
                       <View>
-                        <Text style={[style.hourText,{color:'white'}]}>4Hr</Text>
+                        <Text style={[style.hourText,{color:fontColor}]}>4Hr</Text>
                       </View>
                   </View>
               </View>

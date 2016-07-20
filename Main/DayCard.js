@@ -28,14 +28,15 @@ class DayCard extends Component {
 
   render(){
     var cardColor = this.props.color
+    var fontColor = this.props.fontColor
       return(
           <View style={[style.container,,{backgroundColor:cardColor}]}>
               <View style={style.leftContainer}>
-                  <Text style={style.dayText}>{this.props.date}</Text>
+                  <Text style={[style.dayText,{color:fontColor}]}>{this.props.date}</Text>
               </View>
               <View style={style.middleContainer}>
                       <View>
-                        <Text style={[style.hourText,{color:'white'}]}>{this.props.hours}Hr</Text>
+                        <Text style={[style.hourText,{color:fontColor}]}>{this.props.hours}Hr</Text>
                       </View>
               </View>
               {/*<View style={style.rightContainer}>
@@ -56,22 +57,28 @@ const style = EStyleSheet.create({
     width  : '90%',
     marginLeft:'5%',
     marginRight: '5%',
-    borderRadius: 8,
+    //borderRadius: 8,
     marginTop:'1%',
     marginBottom: '1%',
-    flexDirection:'row'
+    flexDirection:'row',
+    shadowColor: "#000000",
+    shadowOpacity: 0.3,
+    shadowRadius: 1,
+    shadowOffset: {
+      height: 1,
+      width: -2
+    }
   },
   dayText:{
-    color:'white',
     fontWeight:'800',
-    fontSize:35
+    fontSize:20
   },
 
   hourText:{
     color:'white',
     fontWeight:'800',
     fontSize:30,
-    fontFamily:'Verdana'
+    //fontFamily:'Verdana'
   },
 
   innerMiddleContainer:{
@@ -81,7 +88,7 @@ const style = EStyleSheet.create({
     width: '20%',
     //backgroundColor:'white',
     //opacity: 0.8,
-    borderRadius: 20,
+    //borderRadius: 20,
   },
 
   leftContainer:{

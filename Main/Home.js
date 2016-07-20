@@ -72,7 +72,7 @@ class Home extends Component {
 
 const style = EStyleSheet.create({
   image:{
-    height: '$logoImageHeight',
+    height: '$deviceHeight'/10,
     width: '80%',
     alignItems:'center',
     justifyContent:'center',
@@ -130,7 +130,7 @@ const style = EStyleSheet.create({
     justifyContent:'center',
     height:'5%',
     borderColor:'$appTextColor',
-    borderWidth:'0.02 * $logoImageHeight',
+    borderWidth:'0.02 * $deviceHeight'/10,
     borderRadius:5
   },
   signInText:{

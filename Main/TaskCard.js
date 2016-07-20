@@ -115,7 +115,7 @@ const style = EStyleSheet.create({
   },
 
   image:{
-    height: '$logoImageHeight',
+    height: '$deviceHeight'/10,
     width: '80%',
     alignItems:'center',
     justifyContent:'center',

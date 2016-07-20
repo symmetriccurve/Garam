@@ -185,7 +185,9 @@ class Navigation extends Component {
 
 EStyleSheet.build(
   {
-    logoImageHeight: '10%',
+    deviceHeight: '100%',
+    deviceWidth: '100%',
+    logoImageHeight:'10%',
     textBoxHeight:'0.8 * $logoImageHeight',
     inputTextFontSize: '0.3 * $logoImageHeight',
     appBackgroundColor: 'coral',

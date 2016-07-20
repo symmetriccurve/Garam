@@ -34,11 +34,11 @@ class DayCard extends Component {
               <View style={style.leftContainer}>
                   <Text style={[style.dayText,{color:fontColor}]}>{this.props.date}</Text>
               </View>
-              <View style={style.middleContainer}>
+              {/*<View style={style.middleContainer}>
                       <View>
                         <Text style={[style.hourText,{color:fontColor}]}>{this.props.hours}Hr</Text>
                       </View>
-              </View>
+              </View>*/}
               {/*<View style={style.rightContainer}>
                     <TouchableHighlight onPress={()=>{this._takeToTasksOfTheDay(this.props.date)}}>
                         <View>
@@ -53,11 +53,11 @@ class DayCard extends Component {
 
 const style = EStyleSheet.create({
   container: {
-    height : '10%',
-    width  : '90%',
+    height : '$logoImageHeight',
+    width  : '$logoImageHeight',
     marginLeft:'5%',
     marginRight: '5%',
-    //borderRadius: 8,
+    borderRadius: 50,
     marginTop:'1%',
     marginBottom: '1%',
     flexDirection:'row',
@@ -71,7 +71,7 @@ const style = EStyleSheet.create({
   },
   dayText:{
     fontWeight:'800',
-    fontSize:20
+    //fontSize:20
   },
 
   hourText:{
@@ -97,7 +97,7 @@ const style = EStyleSheet.create({
     height : '10%',
     marginLeft:'5%',
   //  backgroundColor:'tan',
-    width:'50%'
+    //width:'50%'
   },
 
   middleContainer:{
@@ -121,7 +121,7 @@ const style = EStyleSheet.create({
   },
 
   image:{
-    height: '$logoImageHeight',
+    height: '$deviceHeight'/10,
     width: '80%',
     alignItems:'center',
     justifyContent:'center',

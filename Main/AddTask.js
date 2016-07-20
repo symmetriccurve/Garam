@@ -35,7 +35,7 @@ class AddTask extends Component {
  }
 
  render() {
-   console.log("This dot props", this.props);
+   //console.log("This dot props", this.props);
    var user = firebase.auth().currentUser;
     return (
           <View style={style.container}>

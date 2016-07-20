@@ -57,40 +57,29 @@ class Navigation extends Component {
 
  static NavigationBarRouteMapper = self => ({
      LeftButton(route, navigator, index, navState) {
-       if(route.id == 'Login'|| route.id =='MainView'){ //Login MainView does not require a backButton as they are part of Home Screen
-           return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.openDrawer('left')}}>
-                     <Image
-                         style={styles.LeftMenuIcon}
-                           source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
-                       />
-                  </TouchableHighlight>
-      }else if(route.id =='AlertsDetail'){
-        return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.pop()}}>
-                        <Image
-                            style={styles.LeftMenuIcon}
-                              source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
-                          />
-               </TouchableHighlight>
-      }else{
+       if(1){
         return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.pop()}}>
         {/*self.refs.navigator.getCurrentRoutes()[1], before popToRoute check to see
           */}
-                        <Image
-                            style={styles.LeftMenuIcon}
-                              source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
-                          />
+                      <View style={{marginLeft:10}}>
+                        <Icon name="pencil" color={'white'} size={30} />
+                      </View>
                </TouchableHighlight>
       }
 
      },
      RightButton(route, navigator, index, navState) {
-       if(route.id == 'DaysList'){
+       if(1){
          return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.push({id: "AddDay",title:'Add day'})}}>
-                   <Icon name="plus" color={'white'} size={30} />
+                     <View style={{marginRight:10}}>
+                       <Icon name="plus" color={'white'} size={30} />
+                     </View>
                 </TouchableHighlight>
       }else{
         return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.push({id: "AddTask",title:'Add Task'})}}>
-                  <Icon name="plus" color={'white'} size={30} />
+                <View style={{marginRight:10}}>
+                  <Icon name="pencil" color={'white'} size={30} />
+                </View>
                </TouchableHighlight>
       }
      },
@@ -154,7 +143,7 @@ class Navigation extends Component {
     if(1){
        return(
          //TODO: Android Naviagtion title is going out of place some times.
-         <Navigator.NavigationBar style={{backgroundColor: 'tan', alignItems: 'center'}}
+         <Navigator.NavigationBar style={{backgroundColor: '#666666', alignItems: 'center'}}
              routeMapper={Navigation.NavigationBarRouteMapper(this)}/>
        );
     } else{
@@ -212,6 +201,7 @@ const styles = EStyleSheet.create({
   },
   title: {
     color: 'white',
+    fontWeight:'800',
     '@media android': {
       marginLeft: '22%',
     },

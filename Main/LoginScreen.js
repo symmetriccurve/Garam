@@ -52,18 +52,18 @@ class Login extends Component {
 }
 
 _userLogedIn(user){
-  console.log("successful Login",user.displayName);
-  console.log("This", this);
+  // console.log("successful Login",user.displayName);
+  // console.log("This", this);
   if (user != null) {
     user.providerData.forEach(function (profile) {
-      console.log("Sign-in provider: "+profile.providerId);
-      console.log("  Provider-specific UID: "+profile.uid);
-      console.log("  Name: "+profile.displayName);
-      console.log("  Email: "+profile.email);
-      console.log("  Photo URL: "+profile.photoURL);
+      // console.log("Sign-in provider: "+profile.providerId);
+      // console.log("  Provider-specific UID: "+profile.uid);
+      // console.log("  Name: "+profile.displayName);
+      // console.log("  Email: "+profile.email);
+      // console.log("  Photo URL: "+profile.photoURL);
     });
         if(user.displayName){
-          this.props.navigator.push({id: "DaysList",title:'DaysList',passProps:({displayName:user.displayName})})
+          this.props.navigator.push({id: "DaysList",title:'Task List',passProps:({displayName:user.displayName})})
         }else{
           this.props.navigator.push({id: "UpdateProfile",title:'Profile'})
         }
@@ -87,14 +87,14 @@ _signOut(){
   // An error happened.
 });
 var user = firebase.auth().currentUser;
-  console.log("userInfo",user);
+  //console.log("userInfo",user);
 if (user != null) {
   user.providerData.forEach(function (profile) {
-    console.log("Sign-in provider: "+profile.providerId);
-    console.log("  Provider-specific UID: "+profile.uid);
-    console.log("  Name: "+profile.displayName);
-    console.log("  Email: "+profile.email);
-    console.log("  Photo URL: "+profile.photoURL);
+    // console.log("Sign-in provider: "+profile.providerId);
+    // console.log("  Provider-specific UID: "+profile.uid);
+    // console.log("  Name: "+profile.displayName);
+    // console.log("  Email: "+profile.email);
+    // console.log("  Photo URL: "+profile.photoURL);
   });
 }
 }

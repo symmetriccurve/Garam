@@ -24,7 +24,7 @@ class DayCard extends Component {
   }
 
   _takeToTasksOfTheDay(day){
-    console.log("Day Clicked");
+    //console.log("Day Clicked");
   }
 
   render(){
@@ -56,27 +56,34 @@ class DayCard extends Component {
 
 const style = EStyleSheet.create({
   container: {
-    height : '10%',
-    width  : '75%',
-    marginLeft:'5%',
+    height : '5%',
+    width  : '60%',
+    //marginLeft:'5%',
     marginRight: '5%',
-    borderRadius: 8,
+    //borderRadius: 8,
     marginTop:'1%',
     marginBottom: '1%',
-    flexDirection:'row'
+    flexDirection:'row',
+    shadowColor: "#000000",
+    shadowOpacity: 0.3,
+    shadowRadius: 1,
+    shadowOffset: {
+      height: 1,
+      width: 2
+    },
   },
   dayText:{
     color:'white',
     fontWeight:'800',
-    fontSize:23,
-    fontFamily:'Verdana'
+    //fontSize:23,
+    //fontFamily:'Verdana'
   },
 
   hourText:{
     color:'white',
     fontWeight:'800',
-    fontSize:23,
-    fontFamily:'Verdana'
+    //fontSize:23,
+    //fontFamily:'Verdana'
   },
 
   innerMiddleContainer:{
@@ -87,19 +94,21 @@ const style = EStyleSheet.create({
   },
 
   leftContainer:{
-    alignItems:'center',
+    //alignItems:'center',
     justifyContent:'center',
-    height : '10%',
+    marginLeft:'2%'
+    //height : '10%',
   //  backgroundColor:'tan',
-    width:'50%'
+    //width:'50%'
   },
 
   middleContainer:{
     alignItems:'center',
     justifyContent:'center',
-    height : '10%',
-  //  backgroundColor:'coral',
-    width:'30%'
+    marginLeft:'2%'
+    //height : '10%',
+    //backgroundColor:'coral',
+    //width:'30%'
   },
 
   rightContainer:{

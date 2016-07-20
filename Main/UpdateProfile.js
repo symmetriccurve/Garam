@@ -38,7 +38,7 @@ class UpdateProfile extends Component {
       }
       self.props.navigator.push({id: "Home",title:'Home',passProps:({displayName: self.state.displayName})})
       Alert.alert("update successful")
-      console.log("user Profile Display Name After update:", user.displayName);
+      //console.log("user Profile Display Name After update:", user.displayName);
       }, function(error) {
         Alert.alert("update unsuccessful",error)
       });

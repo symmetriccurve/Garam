@@ -27,12 +27,12 @@ class TaskList extends Component {
       var user = firebase.auth().currentUser;
       var uid = user.uid
       firebase.database().ref('/users/' + uid).once('value').then(function(snapshot) {
-         console.log("snapshot",snapshot.val());
+         //console.log("snapshot",snapshot.val());
        });
   }
 
 renderRow(rowData: string, sectionID: number, rowID: number){
-      console.log("rowData",rowData);
+      //console.log("rowData",rowData);
          return (
                 <TaskCard/>
            );

@@ -33,8 +33,8 @@ class DaysList extends Component {
       var uid = user.uid
       firebase.database().ref('/users/' + uid +'/' + user.displayName ).on('value',function(snapshot){
          var daysList   = Object.keys(snapshot.val()).map(function(k) { return snapshot.val()[k] })
-         console.log("snapshot.val()",snapshot.val());
-         console.log("daysList",daysList);
+         //console.log("snapshot.val()",snapshot.val());
+         //console.log("daysList",daysList);
          self.setState({
            loaded: true,
            dataSource: daysList
@@ -43,7 +43,7 @@ class DaysList extends Component {
   }
 
 _renderTasksList(Tasks){
-       console.log("Tasks", Tasks);
+       //console.log("Tasks", Tasks);
        var TasksArray = []
        for(var key in Tasks ) {
          TasksArray.push(Tasks[key])
@@ -51,7 +51,7 @@ _renderTasksList(Tasks){
 
        return(
           TasksArray.map(function(eachTask) {
-              console.log("eachTask",eachTask);
+              //console.log("eachTask",eachTask);
             return(
               <View key= {eachTask.TaskNumber+ 'someText'} style={{flex:1,backgroundColor:'tan',width:100,height:100}}>
                            <Text key = {1} style={{backgroundColor:'lightblue',height:15}}> {eachTask.TaskNumber} </Text>
@@ -71,16 +71,16 @@ _addNewTask(){
 _totalTaskHours(Tasks){
     var taskHours = 0
     for(var key in Tasks ) {
-      console.log("Calculate Tasks",Tasks.TaskHours);
+      //console.log("Calculate Tasks",Tasks.TaskHours);
       taskHours = taskHours + Tasks[key].TaskHours
     }
     return taskHours
 }
 
 renderRow(rowData: string, sectionID: number, rowID: number){
-      console.log("rowID",rowID);
+      //console.log("rowID",rowID);
       if(rowID == 0) return null
-      console.log("Day",rowData);
+      //console.log("Day",rowData);
       var totalTaskHours = this._totalTaskHours(rowData.Tasks)
          return (
                <DayCard date = {rowData.Day} hours = {totalTaskHours} navigator ={this.props.navigator}/>
@@ -93,6 +93,7 @@ renderRow(rowData: string, sectionID: number, rowID: number){
    }
    return(
       <ScrollView style={style.container}>
+            <View style={{marginTop:20}}>
           {/*<ListView style={style.list}
                     enableEmptySections ={true}
                     dataSource={ds.cloneWithRows(this.state.dataSource)}
@@ -100,7 +101,7 @@ renderRow(rowData: string, sectionID: number, rowID: number){
           />*/}
           <View style={{flexDirection:'row',alignItems:'center'}}>
                 <View>
-                  <DayCard date= 'JUNE 15' color = '#ffffff' fontColor = '#787878'/>
+                  <DayCard date= 'JUNE 15' color = '#3d8af7' fontColor = '#ffffff'/>
                 </View>
                 <View style={{}}>
                   <TaskCard color = '#ffffff' fontColor = '#787878'/>
@@ -108,14 +109,59 @@ renderRow(rowData: string, sectionID: number, rowID: number){
                   <TaskCard color = '#ffffff' fontColor = '#787878'/>
                 </View>
           </View>
-          <DayCard date= 'June 16' color = '#3d8af7'/>
-          <TaskCard color = '#75a9f9'/>
-          <TaskCard color = '#75a9f9'/>
-          <DayCard date= 'June 17' color = '#ff5d55'/>
-          <TaskCard color = '#ff8a84'/>
-          <TaskCard color = '#ff8a84'/>
-          <TaskCard color = '#ff8a84'/>
-          <TaskCard color = '#ff8a84'/>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row',alignItems:'center'}}>
+                <View>
+                  <DayCard date= 'JUNE 16' color = '#ff5d55' fontColor = '#ffffff'/>
+                </View>
+                <View style={{}}>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                </View>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row',alignItems:'center'}}>
+                <View>
+                  <DayCard date= 'JUNE 16' color = '#629c44' fontColor = '#ffffff'/>
+                </View>
+                <View style={{}}>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                </View>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row',alignItems:'center'}}>
+                <View>
+                  <DayCard date= 'JUNE 15' color = '#3d8af7' fontColor = '#ffffff'/>
+                </View>
+                <View style={{}}>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row',alignItems:'center'}}>
+                <View>
+                  <DayCard date= 'JUNE 20' color = '#ff5d55' fontColor = '#ffffff'/>
+                </View>
+                <View style={{}}>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                </View>
+          </View>
+          <View style={{flexDirection:'row',alignItems:'center'}}>
+                <View>
+                  <DayCard date= 'JUNE 21' color = '#ff5d55' fontColor = '#ffffff'/>
+                </View>
+                <View style={{}}>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                </View>
+          </View>
+          </View>
+        </View>
       </ScrollView>
     );
  }
@@ -139,7 +185,7 @@ const style = EStyleSheet.create({
     justifyContent:'center',
   },
   container:{
-    marginTop:'10%',
+    marginTop:'8%',
     height:'100%',
     width:'100%',
     backgroundColor:'#ebebeb',

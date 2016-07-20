@@ -42,7 +42,7 @@ class AddDay extends Component {
 
  render() {
    var self = this
-   console.log("This", this);
+   //console.log("This", this);
    BackAndroid.addEventListener('hardwareBackPress', function() {
      return false
     // console.log("self.props.navigator.getCurrentRoutes()",self.props.navigator.getCurrentRoutes());

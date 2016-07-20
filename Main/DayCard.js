@@ -67,7 +67,9 @@ const style = EStyleSheet.create({
     shadowOffset: {
       height: 1,
       width: -2
-    }
+    },
+    alignItems:'center',
+    justifyContent:'center'
   },
   dayText:{
     fontWeight:'800',
@@ -95,8 +97,8 @@ const style = EStyleSheet.create({
     //alignItems:'center',
     justifyContent:'center',
     height : '10%',
-    marginLeft:'5%',
-  //  backgroundColor:'tan',
+    //marginLeft:'5%',
+    //backgroundColor:'tan',
     //width:'50%'
   },
 

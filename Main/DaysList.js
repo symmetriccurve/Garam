@@ -98,10 +98,16 @@ renderRow(rowData: string, sectionID: number, rowID: number){
                     dataSource={ds.cloneWithRows(this.state.dataSource)}
                     renderRow={this.renderRow.bind(this)}
           />*/}
-          <DayCard date= 'June 15' color = '#ffffff' fontColor = '#787878'/>
-          <TaskCard color = '#ffffff' fontColor = '#787878'/>
-          <TaskCard color = '#ffffff' fontColor = '#787878'/>
-          <TaskCard color = '#ffffff' fontColor = '#787878'/>
+          <View style={{flexDirection:'row',alignItems:'center'}}>
+                <View>
+                  <DayCard date= 'JUNE 15' color = '#ffffff' fontColor = '#787878'/>
+                </View>
+                <View style={{}}>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                  <TaskCard color = '#ffffff' fontColor = '#787878'/>
+                </View>
+          </View>
           <DayCard date= 'June 16' color = '#3d8af7'/>
           <TaskCard color = '#75a9f9'/>
           <TaskCard color = '#75a9f9'/>

@@ -17,7 +17,7 @@ var DaysList = require('./DaysList')
 class Home extends Component {
   constructor(){
     super();
-    this._pasEditUnmountFunction = this._pasEditUnmountFunction.bind(this);
+    //this._pasEditUnmountFunction = this._pasEditUnmountFunction.bind(this);
     this.state={
     }
   }
@@ -38,11 +38,11 @@ class Home extends Component {
  }
 
  componentDidMount() {
-      BackAndroid.addEventListener('hardwareBackPress', this._pasEditUnmountFunction);
+      //BackAndroid.addEventListener('hardwareBackPress', this._pasEditUnmountFunction);
   }
 
  componentWillUnmount() {
-      BackAndroid.removeEventListener('hardwareBackPress', this._pasEditUnmountFunction);
+      //BackAndroid.removeEventListener('hardwareBackPress', this._pasEditUnmountFunction);
  }
 
  _popNavigation() {

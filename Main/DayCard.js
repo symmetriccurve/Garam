@@ -54,10 +54,10 @@ class DayCard extends Component {
 const style = EStyleSheet.create({
   container: {
     height : '$logoImageHeight',
-    width  : '$logoImageHeight',
+    width  : '8%',
     marginLeft:'5%',
-    marginRight: '5%',
-    borderRadius: 50,
+    marginRight: '2%',
+    //borderRadius: 50,
     marginTop:'1%',
     marginBottom: '1%',
     flexDirection:'row',
@@ -73,14 +73,15 @@ const style = EStyleSheet.create({
   },
   dayText:{
     fontWeight:'800',
-    //fontSize:20
+    transform: [{rotate: '-90deg'}],
+    fontFamily:'Avenir'
   },
 
   hourText:{
     color:'white',
     fontWeight:'800',
     fontSize:30,
-    //fontFamily:'Verdana'
+    fontFamily:'Verdana'
   },
 
   innerMiddleContainer:{

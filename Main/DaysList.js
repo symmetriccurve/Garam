@@ -99,9 +99,91 @@ renderRow(rowData: string, sectionID: number, rowID: number){
                     dataSource={ds.cloneWithRows(this.state.dataSource)}
                     renderRow={this.renderRow.bind(this)}
           />*/}
-          <View style={{flexDirection:'row',alignItems:'center'}}>
+          <View style={{flexDirection:'row'}}>
+          <ScrollView horizontal ={true} style={{flexDirection:'row',height:100,width:200}}>
+              <DayCard date= 'JUNE 16' color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff5d55' fontColor = '#ffffff'/>
+                {/*<TaskCard color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff5d55' fontColor = '#ffffff'/>*/}
+            </ScrollView>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row'}}>
+              <DayCard date= 'JUNE 17' color = '#54c7fc' fontColor = '#ffffff'/>
+                <TaskCard color = '#54c7fc' fontColor = '#ffffff'/>
+                <TaskCard color = '#54c7fc' fontColor = '#ffffff'/>
+                <TaskCard color = '#54c7fc' fontColor = '#ffffff'/>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row'}}>
+              <DayCard date= 'JUNE 18' color = '#ffcd00' fontColor = '#ffffff'/>
+                <TaskCard color = '#fcdd54' fontColor = '#ffffff'/>
+                <TaskCard color = '#fcdd54' fontColor = '#ffffff'/>
+                <TaskCard color = '#fcdd54' fontColor = '#ffffff'/>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row'}}>
+              <DayCard date= 'JUNE 19' color = '#4d9fff' fontColor = '#ffffff'/>
+                <TaskCard color = '#0076ff' fontColor = '#ffffff'/>
+                <TaskCard color = '#0076ff' fontColor = '#ffffff'/>
+
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row'}}>
+              <DayCard date= 'JUNE 16' color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff5d55' fontColor = '#ffffff'/>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row'}}>
+              <DayCard date= 'JUNE 21' color = '#54c7fc' fontColor = '#ffffff'/>
+                <TaskCard color = '#54c7fc' fontColor = '#ffffff'/>
+
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row'}}>
+              <DayCard date= 'JUNE 16' color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row'}}>
+              <DayCard date= 'JUNE 16' color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row'}}>
+              <DayCard date= 'JUNE 16' color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row'}}>
+              <DayCard date= 'JUNE 16' color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          <View style={{flexDirection:'row'}}>
+              <DayCard date= 'JUNE 16' color = '#ff5d55' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+                <TaskCard color = '#ff8a84' fontColor = '#ffffff'/>
+          </View>
+          <View style={{height:0.5,borderRadius:4,backgroundColor:'#ffffff',marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}/>
+          {/*<View style={{flexDirection:'row',alignItems:'center'}}>
                 <View>
-                  <DayCard date= 'JUNE 15' color = '#3d8af7' fontColor = '#ffffff'/>
+
                 </View>
                 <View style={{}}>
                   <TaskCard color = '#ffffff' fontColor = '#787878'/>
@@ -160,7 +242,7 @@ renderRow(rowData: string, sectionID: number, rowID: number){
                   <TaskCard color = '#ffffff' fontColor = '#787878'/>
                 </View>
           </View>
-          </View>
+          </View>*/}
         </View>
       </ScrollView>
     );

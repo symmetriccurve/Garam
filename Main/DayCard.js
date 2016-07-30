@@ -18,7 +18,7 @@ class DayCard extends Component {
   constructor(){
     super();
     this.state={
-
+        height:'10%'
     }
   }
 
@@ -30,9 +30,9 @@ class DayCard extends Component {
     var cardColor = this.props.color
     var fontColor = this.props.fontColor
       return(
-          <View style={[style.container,,{backgroundColor:cardColor}]}>
+          <View style={[style.container,{backgroundColor:cardColor}]}>
               <View style={style.leftContainer}>
-                  <Text style={[style.dayText,{color:fontColor}]}>{this.props.date}</Text>
+                  <Text style={[style.dayText,{color:fontColor}]}>NPDIDS 2012</Text>
               </View>
               {/*<View style={style.middleContainer}>
                       <View>
@@ -53,28 +53,29 @@ class DayCard extends Component {
 
 const style = EStyleSheet.create({
   container: {
-    height : '$logoImageHeight',
-    width  : '8%',
+    height : '8%',
+    width  : '90%',
     marginLeft:'5%',
     marginRight: '2%',
-    //borderRadius: 50,
-    marginTop:'1%',
-    marginBottom: '1%',
-    flexDirection:'row',
+    borderRadius: 50,
+    //marginTop:'1%',
+    //marginBottom: -10,
+    //flexDirection:'row',
     shadowColor: "#000000",
-    shadowOpacity: 0.3,
-    shadowRadius: 1,
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
     shadowOffset: {
       height: 1,
-      width: -2
+      width: 0
     },
     alignItems:'center',
     justifyContent:'center'
   },
   dayText:{
     fontWeight:'800',
-    transform: [{rotate: '-90deg'}],
-    fontFamily:'Avenir'
+    //transform: [{rotate: '-90deg'}],
+    fontFamily:'Avenir',
+    fontSize:20
   },
 
   hourText:{

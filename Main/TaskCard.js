@@ -33,8 +33,8 @@ class DayCard extends Component {
       return(
         <View style={[style.container,,{backgroundColor:cardColor}]}>
             <View style={style.leftContainer}>
-                <Text style={[style.dayText,{color:fontColor}]}>1025</Text>
-                <Text style={[style.dayText,{color:fontColor}]}>4hr</Text>
+                <Text style={[style.dayText,{color:fontColor}]}>JUNE</Text>
+                <Text style={[{fontSize:25},{color:'coral'}]}>16</Text>
             </View>
             {/*<View style={style.middleContainer}>
                     <View>

@@ -14,7 +14,7 @@ import {
 
 //node_modules
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import * as firebase from 'firebase';
 var firebaseConfig = {
@@ -59,26 +59,26 @@ class Navigation extends Component {
      LeftButton(route, navigator, index, navState) {
        if(1){
         return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.pop()}}>
-        {/*self.refs.navigator.getCurrentRoutes()[1], before popToRoute check to see
-          */}
+        {/*self.refs.navigator.getCurrentRoutes()[1], before popToRoute check to see*/}
                       <View style={{marginLeft:10}}>
-                        <Icon name="pencil" color={'white'} size={30} />
+                        <Icon name="arrow-back" color={'peachpuff'} size={30} />
                       </View>
                </TouchableHighlight>
       }
 
      },
      RightButton(route, navigator, index, navState) {
-       if(1){
+       console.log("route",route);
+       if(route.id == 'AddDay'){
          return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.push({id: "AddDay",title:'Add day'})}}>
-                     <View style={{marginRight:10}}>
-                       <Icon name="plus" color={'white'} size={30} />
+                     <View style={{marginRight:10,alignItems:'center',justifyContent:'center',height:40}}>
+                        <Text style={{fontSize:20,fontFamily:'HelveticaNeue-UltraLight'}}> Save </Text>
                      </View>
                 </TouchableHighlight>
       }else{
-        return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.push({id: "AddTask",title:'Add Task'})}}>
+        return <TouchableHighlight underlayColor='#990000' onPress={()=>{self.refs.navigator.push({id: "AddDay",title:'Add Task'})}}>
                 <View style={{marginRight:10}}>
-                  <Icon name="pencil" color={'white'} size={30} />
+                  <Icon name="add" color={'grey'} size={30} />
                 </View>
                </TouchableHighlight>
       }
@@ -143,7 +143,7 @@ class Navigation extends Component {
     if(1){
        return(
          //TODO: Android Naviagtion title is going out of place some times.
-         <Navigator.NavigationBar style={{backgroundColor: '#666666', alignItems: 'center'}}
+         <Navigator.NavigationBar style={{backgroundColor: 'transparent', alignItems: 'center'}}
              routeMapper={Navigation.NavigationBarRouteMapper(this)}/>
        );
     } else{
@@ -200,12 +200,13 @@ const styles = EStyleSheet.create({
     }
   },
   title: {
-    color: 'white',
-    fontWeight:'800',
+    color: 'grey',
+    fontWeight:'300',
     '@media android': {
       marginLeft: '22%',
     },
-    fontSize: 16
+    fontSize: 16,
+    fontFamily:'HelveticaNeue-UltraLight'
   },
   rightMenuIcon: {
     height:40,

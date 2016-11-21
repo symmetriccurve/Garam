@@ -13,86 +13,179 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import EStyleSheet from 'react-native-extended-stylesheet';
-
+var fontSize = 40
 class DayCard extends Component {
   constructor(){
     super();
     this.state={
-        height:'10%'
+
     }
   }
 
-  _takeToTasksOfTheDay(day){
-      this.props.navigator.push({id: "TaskList",title:'Tasks ',passProps:({displayName: day})})
+  _renderTaskList(){
+    // <DayCard date = {eachDay.Tasks.Date} color = '#ff8a84' fontColor = '#ffffff' tasks={eachDay.Tasks} totalHours={me._totalTaskHours(eachDay.Tasks)}/>
+    var Tasks = this.props.tasks
+    var taskArray = Object.keys(Tasks).map(function(k) { return Tasks[k] })
+      console.log("taskArray",taskArray);
+    if(taskArray.length != 0)
+         {
+           return(
+            taskArray.map(function(eachTask) {
+              if(eachTask){
+                console.log("here you go", eachTask);
+                return(
+                  <View style={style.taskContainer} key = {Math.random()+eachTask.TaskNumber}>
+                                                <Text style={[style.ProjectSpaceText,{color:'white'}]} key = {Math.random()+eachTask.TaskNumber}>NPDIDS</Text>
+                                                <Text style={[style.taskNumberText,{color:'white'}]} key = {Math.random()+eachTask.TaskNumber}>{eachTask.TaskNumber}</Text>
+                                                <Text style={[style.hoursText,{color:'white'}]} key = {Math.random()+eachTask.TaskNumber}>{eachTask.TaskHours}H</Text>
+                  </View>
+              );}
+            })
+         );
+       }else{
+         return <View style={{flex:1, alignItems:'center',justifyContent:'center',width:200,height:200,backgroundColor:'coral'}}><Text>Wlcome Card </Text></View>
+       }
+
   }
 
+  componentDidMount(){
+
+      this.setState({
+        cardColor  :  this.props.color,
+        fontColor  :  this.props.fontColor,
+        passedDate :  this.props.someDate,
+      })
+
+  }
+  componentWillReceiveProps(){
+
+    this.setState({
+      cardColor  :  this.props.color,
+      fontColor  :  this.props.fontColor,
+      passedDate :  this.props.someDate,
+    })
+
+  }
+
+
+
   render(){
-    var cardColor = this.props.color
-    var fontColor = this.props.fontColor
+    console.log("This Props", this.props);
+    // var cardColor = this.props.color
+    // var fontColor = this.props.fontColor
+    // var passedDate = this.props.someDate
       return(
-          <View style={[style.container,{backgroundColor:cardColor}]}>
-              <View style={style.leftContainer}>
-                  <Text style={[style.dayText,{color:fontColor}]}>NPDIDS 2012</Text>
+          <View style={style.container} key = {Math.random()}>
+            <View style={[style.topContainer,{backgroundColor:this.state.cardColor}]}>
+              <View style={style.topInnerContainer}>
+                {this._renderTaskList()}
               </View>
-              {/*<View style={style.middleContainer}>
-                      <View>
-                        <Text style={[style.hourText,{color:fontColor}]}>{this.props.hours}Hr</Text>
-                      </View>
-              </View>*/}
-              {/*<View style={style.rightContainer}>
-                    <TouchableHighlight onPress={()=>{this._takeToTasksOfTheDay(this.props.date)}}>
-                        <View>
-                            <Icon name="arrow-right" color={'white'} size={30} />
-                        </View>
-                    </TouchableHighlight>
-              </View>*/}
-          </View>);
+            </View>
+            <View style={style.bottomContainer}>
+                                              <Text style={[style.dayText]}>{this.state.passedDate}</Text>
+            </View>
+            <View style={style.middleContainer}>
+                  <View style={style.innerMiddleContainer}>
+                    <Text style={[style.totalHoursText,{color:this.state.cardColor}]}>{this.props.totalHours}</Text>
+                    <Text style={[style.totalHoursText,{color:this.state.cardColor}]}>H</Text>
+                  </View>
+            </View>
+
+          </View>
+        );
   }
 
 }
 
 const style = EStyleSheet.create({
   container: {
-    height : '8%',
-    width  : '90%',
-    marginLeft:'5%',
-    marginRight: '2%',
-    borderRadius: 50,
-    //marginTop:'1%',
-    //marginBottom: -10,
-    //flexDirection:'row',
+    height : '80%',
+    width  : '100%',
+    justifyContent:'center',
+    marginTop:'5%'
+  },
+  topContainer:{
+    height:'80%',
+    width:'90%',
+    backgroundColor:'red',
+    borderTopLeftRadius:10,
+    borderTopRightRadius:10,
+  },
+  bottomContainer:{
+    height:'10%',
+    width:'90%',
+    backgroundColor:'white',
+    justifyContent:'center',
+    borderBottomLeftRadius:10,
+    borderBottomRightRadius:10,
     shadowColor: "#000000",
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
     shadowOffset: {
-      height: 1,
+      height: -2,
+      width: 0
+    },
+  },
+  topInnerContainer:{
+    width:'80%',
+    //backgroundColor:'yellow',
+    marginTop:'5%'
+  },
+  dayText:{
+    fontSize:fontSize,
+    fontFamily:'HelveticaNeue-UltraLight',
+    color:'grey',
+    marginLeft:'5%'
+  },
+  ProjectSpaceText:{
+    fontSize:fontSize,
+    fontFamily:'HelveticaNeue-UltraLight',
+    color:'grey',
+  },
+  taskNumberText:{
+    fontWeight:'500',
+    fontSize:fontSize,
+    fontFamily:'HelveticaNeue-UltraLight',
+    color:'grey',
+    marginLeft:'5%'
+  },
+  hoursText:{
+    fontSize:fontSize,
+    fontWeight:'800',
+    fontFamily:'HelveticaNeue-UltraLight',
+    color:'grey',
+    marginLeft:'5%'
+  },
+  totalHoursText:{
+    fontSize:fontSize/1.1,
+    fontWeight:'800',
+    fontFamily:'HelveticaNeue-UltraLight',
+    color:'grey',
+  },
+  taskContainer:{
+    flexDirection:'row',
+    marginLeft:20,
+    marginRight:20,
+    marginBottom:5,
+    marginTop:5,
+    //backgroundColor:'tan'
+  },
+  innerMiddleContainer:{
+    height:'10%',
+    width:'18%',
+    borderRadius:'$deviceHeight',
+    backgroundColor:'#fff',
+    marginRight:'5%',
+    shadowColor: "#000000",
+    shadowOpacity: 0.05,
+    shadowRadius: 7,
+    shadowOffset: {
+      height: -15,
       width: 0
     },
     alignItems:'center',
-    justifyContent:'center'
-  },
-  dayText:{
-    fontWeight:'800',
-    //transform: [{rotate: '-90deg'}],
-    fontFamily:'Avenir',
-    fontSize:20
-  },
-
-  hourText:{
-    color:'white',
-    fontWeight:'800',
-    fontSize:30,
-    fontFamily:'Verdana'
-  },
-
-  innerMiddleContainer:{
-    alignItems:'center',
     justifyContent:'center',
-    height:'8%',
-    width: '20%',
-    //backgroundColor:'white',
-    //opacity: 0.8,
-    //borderRadius: 20,
+    flexDirection:'row'
   },
 
   leftContainer:{
@@ -105,11 +198,10 @@ const style = EStyleSheet.create({
   },
 
   middleContainer:{
-    alignItems:'center',
-    justifyContent:'center',
-    height : '10%',
-    //backgroundColor:'coral',
-    width:'30%'
+    position:'absolute',
+    width:'90%', borderRadius:5, backgroundColor:'transparent',
+    alignItems:'flex-end',
+    marginTop:'-15%',
   },
 
   rightContainer:{
@@ -129,7 +221,37 @@ const style = EStyleSheet.create({
     width: '80%',
     alignItems:'center',
     justifyContent:'center',
-  }
+  },
+   card: {
+      alignItems:'center',
+      justifyContent:'center',
+      width:'100%',
+      height:'100%',
+      backgroundColor:'#f4f4f4',
+      shadowColor: "#000000",
+      shadowOpacity: 0.3,
+      shadowRadius: 1,
+      shadowOffset: {
+        height: 1,
+        width: -2
+      },
+    },
+    innerCard: {
+      // marginTop:60,
+      // marginLeft:20,
+      // marginRight:20,
+      // marginBottom:20,
+      width:'90%',
+      height:'85%',
+      backgroundColor:'coral',
+      shadowColor: "grey",
+      shadowOpacity: 0.8,
+      shadowRadius: 3,
+      shadowOffset: {
+        height: 1,
+        width: 0
+      },
+    }
 
   });
 module.exports = DayCard

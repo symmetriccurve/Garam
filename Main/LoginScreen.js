@@ -10,23 +10,31 @@ import {
   View,
   Alert,
   BackAndroid,
-  ToastAndroid
+  ToastAndroid,
+  AsyncStorage
 } from 'react-native'
 import * as firebase from 'firebase';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+
+import { Kaede } from 'react-native-textinput-effects';
+
 
 class Login extends Component {
   constructor(){
     super();
     this._popNavigation = this._popNavigation.bind(this);
     this.state={
-      username:'aparna@g.com',
-      password:'aparna',
-      switchIsOn:false,
+      username:'vkrm@g.com',
+      password:'vikram',
+      rememberME:false,
     }
   }
 
   componentDidMount() {
+    AsyncStorage.getItem('userEmailID').then( (value) => {console.log("hey Listen",value)})
+    AsyncStorage.getItem('password').then((value) =>{console.log("hey Listen",value)})
+
        BackAndroid.addEventListener('hardwareBackPress', this._popNavigation);
    }
 
@@ -63,7 +71,7 @@ _userLogedIn(user){
       // console.log("  Photo URL: "+profile.photoURL);
     });
         if(user.displayName){
-          this.props.navigator.push({id: "DaysList",title:'Task List',passProps:({displayName:user.displayName})})
+          this.props.navigator.push({id: "DaysList",title:'Task List',passProps:({userInfo:this.state})})
         }else{
           this.props.navigator.push({id: "UpdateProfile",title:'Profile'})
         }
@@ -100,71 +108,89 @@ if (user != null) {
 }
 
  render() {
+   console.log("This.sta",this.state);
     return (
-          <View style={style.container}>
-              <View style={style.innerContainer}>
-                  <View style={style.imageContainer}>
-                            <Image    source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}} style={style.image} />
-                  </View>
-                  <View style={style.usertextContainer}>
-                      <TextInput
-                            value ={this.state.username}
-                            onChangeText={(text) => this.setState({username: text})}
-                            style={style.userInputText}
-                            placeholder='Username'
-                            autoCapitalize='none'
-                            autoCorrect={false}
-                            placeholderTextColor='white'
-                            />
-                      <View style={style.line}/>
-                  </View>
-                  <View style={style.passTextContainer}>
-                      <TextInput
-                            value ={this.state.password}
-                            onChangeText={(text) => this.setState({password: text})}
-                            style={style.passInputText}
-                            placeholder='Password'
-                            autoCapitalize='none'
-                            autoCorrect={false}
-                            placeholderTextColor='white'
-                            />
-                      <View style={style.line}/>
-                  </View>
-                  <View style={style.registerContainer}>
-                      <View style={style.switchContainer}>
-                            <Switch
-                              onValueChange={(value) => this.setState({switchIsOn: value})}
-                              value={this.state.switchIsOn} />
-                              <Text style={style.remTextContainer}>
-                                Remember Me
-                              </Text>
-                      </View>
-                  </View>
-                  <View style={style.signInButtonContainer}>
-                      <TouchableHighlight onPress={()=>{this._userLogin()}} underlayColor='#990000'>
-                            <View style={style.signInTextContainer}>
-                                <Text style={style.signInText}>SIGN IN</Text>
-                            </View>
-                      </TouchableHighlight>
-                  </View>
-                  <View style={style.signInButtonContainer}>
-                      <TouchableHighlight onPress={()=>{this._signOut()}} underlayColor='#990000'>
-                            <View style={style.signInTextContainer}>
-                                <Text style={style.signInText}>SIGN OUT</Text>
-                            </View>
-                      </TouchableHighlight>
-                  </View>
-                  <View style={style.registerButtonContainer}>
-                  <TouchableHighlight onPress={()=>{
-                      this.props.navigator.push({id: "Register",title:'User Register'})}} underlayColor='#990000'>
-                        <View style={style.signInTextContainer}>
-                            <Text style={style.registerButtonText}>REGISTER</Text>
-                        </View>
-                  </TouchableHighlight>
+      <View style={style.loginContainer}>
+          <Kaede
+            style={style.input}
+            label={'Email'}
+            value={this.state.username}
+            onSubmitEditing= {()=>this._userLogin()}
+            onChangeText = {(userName)=>this.setState({username:userName})}
+            labelStyle={{
+              fontFamily:'HelveticaNeue-UltraLight',
+              fontSize:35,
+              fontWeight:'200',
+              color: 'white',
+              backgroundColor: '#fcb794',
+            }}
+            inputStyle={{
+              fontFamily:'HelveticaNeue-UltraLight',
+              fontWeight:'200',
+              fontSize:20,
+              color: 'white',
+              backgroundColor: '#db8d67',
+            }}
+            keyboardType="email-address"
+          />
+          <Kaede
+            secureTextEntry ={true}
+            style={style.input}
+            label={'Password'}
+            onChangeText = {(Password)=>this.setState({password:Password})}
+            value={this.state.password}
+            onSubmitEditing= {()=>this._userLogin()}
+            labelStyle={{
+              fontFamily:'HelveticaNeue-UltraLight',
+              fontSize:30,
+              fontWeight:'200',
+              color: 'white',
+              backgroundColor: '#fcb794',
+            }}
+            inputStyle={{
+              fontFamily:'HelveticaNeue-UltraLight',
+              color: 'white',
+              backgroundColor: '#db8d67',
+            }}
+            keyboardType="default"
+          />
 
-                  </View>
+          <View style={style.registerContainer}>
+              <View style={style.switchContainer}>
+                    <Switch
+                      onValueChange={(value) => this.setState({rememberME: value})}
+                      value={this.state.rememberME} />
+                      <Text style={style.remTextContainer}>
+                        Remember Me
+                      </Text>
               </View>
           </View>
+          <View style={style.signInButtonContainer}>
+              <TouchableHighlight onPress={()=>{this._userLogin()}} underlayColor='#990000'>
+                    <View style={style.signInTextContainer}>
+                        <Text style={style.signInText}>SIGN IN</Text>
+                    </View>
+              </TouchableHighlight>
+          </View>
+          <View style={style.signInButtonContainer}>
+          <TouchableHighlight onPress={()=>{
+              this.props.navigator.push({id: "Register",title:'User Register'})}} underlayColor='#db8d67'>
+                    <View style={style.signInTextContainer}>
+                        <Text style={style.signInText}>SIGN UP</Text>
+                    </View>
+              </TouchableHighlight>
+          </View>
+          <View style={style.registerButtonContainer}>
+          {/*<TouchableHighlight onPress={()=>{
+              this.props.navigator.push({id: "Register",title:'User Register'})}} underlayColor='#990000'>
+                <View style={style.signInTextContainer}>
+                    <Text style={style.registerButtonText}>REGISTER</Text>
+                </View>
+          </TouchableHighlight>*/}
+
+          </View>
+      </View>
+
     );
   }
 }
@@ -177,9 +203,12 @@ const style = EStyleSheet.create({
   container:{
     height:'100%',
     width:'100%',
-    backgroundColor:'$appBackgroundColor',
+    backgroundColor:'#3d8af7',
     alignItems:'center',
     justifyContent:'center'
+  },
+  loginContainer:{
+      marginTop:'10%'
   },
   innerContainer:{
       height:'70%',
@@ -191,9 +220,13 @@ const style = EStyleSheet.create({
   },
   usertextContainer:{
     //backgroundColor:'tan',
+    width:'100%',
     marginTop:'10%'
   },
   passTextContainer:{
+    height:50,
+    width:150,
+    marginLeft:50,
     //backgroundColor:'lightblue',
     marginTop:'5%'
   },
@@ -212,9 +245,11 @@ const style = EStyleSheet.create({
   },
   switchContainer:{
     flexDirection:'row',
-    justifyContent:'flex-start',
+    justifyContent:'center',
     alignItems:'center',
     height:'10%',
+    backgroundColor:'#db8d67',
+    marginBottom:'5%'
   },
   remTextContainer:{
     fontSize:'$inputTextFontSize',
@@ -222,20 +257,22 @@ const style = EStyleSheet.create({
     paddingLeft:'5%'
   },
   signInButtonContainer:{
-    marginTop:'2%',
+    //marginTop:'2%',
   },
   signInTextContainer:{
     alignItems:'center',
     justifyContent:'center',
-    height:'5%',
-    borderColor:'$appTextColor',
-    borderWidth:'$deviceHeight'/10,
-    borderRadius:5
+    height:'10%',
+    //borderColor:'$appTextColor',
+    //borderWidth:'$deviceHeight'/10,
+    //borderRadius:5,
+    backgroundColor:'#db8d67'
   },
   signInText:{
-    fontSize:'$inputTextFontSize',
-    color:'$appTextColor',
-    fontWeight:'bold'
+    fontFamily:'HelveticaNeue-UltraLight',
+    fontSize:35,
+    fontWeight:'200',
+    color:'white'
   },
   registerButtonContainer:{
     height:'5%',
@@ -250,15 +287,27 @@ const style = EStyleSheet.create({
   },
   userInputText:{
     height:'$textBoxHeight',
-    fontSize:'$inputTextFontSize'
+    //fontSize:'$inputTextFontSize'
   },
   passInputText:{
     height:'$textBoxHeight',
-    fontSize:'$inputTextFontSize'
+    //fontSize:'$inputTextFontSize'
   },
   SwitchControl:{
     height:'$textBoxHeight',
-  }
+  },
+  input: {
+    marginTop: '1%',
+    //backgroundColor:'red',
+    // shadowColor: "#000000",
+    // shadowOpacity: 0.2,
+    // shadowRadius: 1,
+    // shadowOffset: {
+    //   height: 2,
+    //   width: 0
+    // }
+  },
 
   });
+
 module.exports = Login
